@@ -765,6 +765,68 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .tc-feat p { color: var(--tc-body); font-size: 14.5px; line-height: 1.55; }
 
 /* ============================================================
+   UNIFIED CARD HOVER ANIMATION (all boxes / bento)
+   ============================================================ */
+.tc-card,
+.tc-check-card,
+.tc-bento-card,
+.tc-feat,
+.tc-instructor-card,
+.tc-testi,
+.tc-dialog-card {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background-color 0.35s ease;
+  will-change: transform;
+}
+.tc-card:hover,
+.tc-check-card:hover,
+.tc-bento-card:hover,
+.tc-feat:hover,
+.tc-instructor-card:hover,
+.tc-testi:hover,
+.tc-dialog-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(218,160,36,0.55);
+  box-shadow:
+    0 18px 48px -16px rgba(0,0,0,0.7),
+    0 0 0 1px rgba(218,160,36,0.18),
+    0 10px 40px -12px rgba(218,160,36,0.35);
+}
+/* lift the icon on hover */
+.tc-card:hover .tc-card-icon,
+.tc-check-card:hover .tc-check-icon,
+.tc-bento-card:hover .tc-bento-top .tc-card-icon,
+.tc-feat:hover .tc-card-icon,
+.tc-instructor-card:hover .tc-ic-body,
+.tc-dialog-card:hover .tc-dc-name {
+  transition: transform 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+.tc-card:hover .tc-card-icon,
+.tc-feat:hover .tc-card-icon {
+  transform: scale(1.08) translateY(-2px);
+  border-color: rgba(218,160,36,0.6);
+}
+.tc-check-card:hover .tc-check-icon {
+  transform: scale(1.1);
+  border-color: rgba(201,40,40,0.6);
+}
+.tc-instructor-card:hover .tc-ic-name { color: var(--tc-gold); transition: color 0.3s ease; }
+.tc-bento-card:hover .tc-bento-name { color: var(--tc-gold); transition: color 0.3s ease; }
+.tc-dialog-card:hover { transform: translateY(-4px); }
+/* gold-glow & red-accent bento cards brighten on hover */
+.tc-bento-card.gold-glow:hover { background: radial-gradient(ellipse at top right, rgba(218,160,36,0.28), var(--tc-card) 62%); }
+.tc-bento-card.red-accent:hover { background: linear-gradient(160deg, rgba(201,40,40,0.34), var(--tc-card) 68%); }
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .tc-card, .tc-check-card, .tc-bento-card, .tc-feat, .tc-instructor-card, .tc-testi, .tc-dialog-card { transition: none; }
+  .tc-card:hover, .tc-check-card:hover, .tc-bento-card:hover, .tc-feat:hover,
+  .tc-instructor-card:hover, .tc-testi:hover, .tc-dialog-card:hover { transform: none; }
+}
+
+/* ============================================================
    INSTRUCTORS
    ============================================================ */
 .tc-instructor-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
