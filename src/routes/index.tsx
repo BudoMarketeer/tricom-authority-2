@@ -19,7 +19,17 @@ export const Route = createFileRoute("/")({
           "Street-tested, military-proven combatives trusted by law enforcement, military and everyday protectors. Taught in 40+ countries.",
       },
       { property: "og:type", content: "website" },
+      {
+        property: "og:image",
+        content:
+          "https://vibe.filesafe.space/1793886878432684230/attachments/4383ac36-20ec-45c6-8a30-b7242a7e284e.jpg",
+      },
       { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:image",
+        content:
+          "https://vibe.filesafe.space/1793886878432684230/attachments/4383ac36-20ec-45c6-8a30-b7242a7e284e.jpg",
+      },
     ],
   }),
   component: Index,
