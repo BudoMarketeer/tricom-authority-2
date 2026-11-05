@@ -420,23 +420,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   max-width: 1400px;
   object-fit: cover;
   object-position: 80% center;
-  filter: grayscale(100%) contrast(1.15) brightness(0.92);
-  /* Faded out from right to left */
-  mask-image: linear-gradient(to left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0.2) 65%, transparent 92%);
-  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0.2) 65%, transparent 92%);
+  filter: grayscale(100%) contrast(1.12) brightness(0.98);
+  /* Faded out from right to left, more visible */
+  mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.55) 62%, rgba(0,0,0,0.12) 82%, transparent 96%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 30%, rgba(0,0,0,0.55) 62%, rgba(0,0,0,0.12) 82%, transparent 96%);
 }
 @media (max-width: 900px) {
   .tc-hero-photo {
-    object-position: 65% center;
-    mask-image: linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 90%);
-    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 90%);
+    object-position: 70% center;
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 45%, rgba(0,0,0,0.18) 75%, transparent 95%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 45%, rgba(0,0,0,0.18) 75%, transparent 95%);
   }
 }
 .tc-hero-overlay {
   position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.78) 60%, var(--tc-black) 100%),
-    linear-gradient(90deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.55) 50%, rgba(10,10,10,0.3) 100%);
+    linear-gradient(180deg, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.6) 60%, var(--tc-black) 100%),
+    linear-gradient(90deg, rgba(10,10,10,0.86) 0%, rgba(10,10,10,0.4) 46%, rgba(10,10,10,0.08) 80%, rgba(10,10,10,0.1) 100%);
 }
 .tc-hero-glow {
   position: absolute; left: 50%; top: 18%;
