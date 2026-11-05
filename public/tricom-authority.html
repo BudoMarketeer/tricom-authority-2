@@ -311,16 +311,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   justify-content: space-between;
   gap: 24px;
 }
-.tc-logo { display: flex; align-items: center; gap: 12px; flex: none; }
-.tc-logo-mark {
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--tc-gold), #8a6a14);
-  display: grid; place-items: center;
-  color: var(--tc-black);
-  font-family: var(--tc-font-head);
-  font-weight: 800;
-  font-size: 18px;
+.tc-logo { display: flex; align-items: center; gap: 12px; flex: none; text-decoration: none; }
+.tc-logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 6px;
+  display: block;
+  flex: none;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
 }
 .tc-logo-word { font-family: var(--tc-font-head); font-weight: 800; font-size: 20px; letter-spacing: 0.02em; }
 .tc-logo-word span { color: var(--tc-gold); }
@@ -893,9 +892,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
      ============================================================ -->
 <header class="tc-header">
   <div class="tc-header-inner">
-    <a class="tc-logo" href="#">
+    <a class="tc-logo" href="#" aria-label="TRICOM Training Home">
       <!-- LINK: Home -->
-      <span class="tc-logo-mark">T</span>
+      <img src="https://vibe.filesafe.space/1793886878432684230/attachments/80613eea-3f63-452d-a441-2596410bef55.png" alt="TRICOM Training Crest" class="tc-logo-img" width="50" height="50" />
       <span class="tc-logo-word">TRI<span>COM</span></span>
     </a>
     <nav class="tc-nav" aria-label="Primary">
@@ -918,7 +917,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 <!-- Mobile menu -->
 <div class="tc-mobile-menu" id="tcMobileMenu" aria-hidden="true">
-  <button class="tc-mobile-close" id="tcMobileClose" aria-label="Close menu">&times;</button>
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+    <a class="tc-logo" href="#" aria-label="TRICOM Training Home">
+      <img src="https://vibe.filesafe.space/1793886878432684230/attachments/80613eea-3f63-452d-a441-2596410bef55.png" alt="TRICOM Training Crest" class="tc-logo-img" width="44" height="44" />
+      <span class="tc-logo-word">TRI<span>COM</span></span>
+    </a>
+    <button class="tc-mobile-close" id="tcMobileClose" aria-label="Close menu">&times;</button>
+  </div>
   <a href="#">Online Training</a><!-- LINK: Online Training -->
   <a href="#">Live Courses</a><!-- LINK: Live course calendar -->
   <a href="#">Instructor Program</a><!-- LINK: Instructor program -->
@@ -1488,7 +1493,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 <footer class="tc-footer">
   <div class="tc-footer-inner">
     <div class="tc-footer-brand">
-      <a class="tc-logo" href="#"><span class="tc-logo-mark">T</span><span class="tc-logo-word">TRI<span>COM</span></span></a>
+      <a class="tc-logo" href="#" aria-label="TRICOM Training Home">
+        <img src="https://vibe.filesafe.space/1793886878432684230/attachments/80613eea-3f63-452d-a441-2596410bef55.png" alt="TRICOM Training Crest" class="tc-logo-img" width="50" height="50" />
+        <span class="tc-logo-word">TRI<span>COM</span></span>
+      </a>
       <p>Triangle Combatives. The training brand of Survival Edge Tactical Systems, founded in 2006. Street-tested, military-proven combatives taught in 40+ countries.</p>
       <div class="tc-socials">
         <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6v1.9h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg></a><!-- LINK: Facebook -->
