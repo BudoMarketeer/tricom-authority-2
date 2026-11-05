@@ -680,6 +680,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .tc-bounce-arrow svg { width: 30px; height: 30px; stroke: var(--tc-gold); animation: tc-bounce 2s ease-in-out infinite; }
 @keyframes tc-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
 
+/* Section down-arrow (animated, appears at bottom of each section) */
+.tc-section-down {
+  display: flex; justify-content: center; margin-top: 64px;
+  opacity: 0.55; transition: opacity 0.3s ease;
+}
+.tc-section-down:hover { opacity: 1; }
+.tc-section-down svg {
+  width: 26px; height: 26px; stroke: var(--tc-gold); stroke-width: 1.5;
+  fill: none; animation: tc-bounce 2.2s ease-in-out infinite;
+}
+.tc-tone-red .tc-section-down svg { stroke: var(--tc-white); }
+.tc-section-down:focus-visible { outline: 2px solid var(--tc-gold); outline-offset: 6px; border-radius: 8px; }
+
 /* ============================================================
    BENTO GRID
    ============================================================ */
@@ -964,7 +977,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* Reduced motion: kill animations, show final state */
 @media (prefers-reduced-motion: reduce) {
-  .tc-announce-track, .tc-marquee-track, .tc-bounce-arrow svg, .tc-btn-primary::before, .tc-caret { animation: none !important; }
+  .tc-announce-track, .tc-marquee-track, .tc-bounce-arrow svg, .tc-section-down svg, .tc-btn-primary::before, .tc-caret { animation: none !important; }
   .tc-reveal { opacity: 1 !important; transform: none !important; }
   .tc-hero-slide { transition: none; }
   .tc-hero-slide.active { opacity: 1; }
@@ -1128,6 +1141,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       <span class="tc-partner-logo">Browning</span>
     </div>
   </div>
+  <div class="tc-section-down" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 </section>
 
 <!-- ============================================================
@@ -1198,6 +1212,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
     </div>
   </div>
+  <div class="tc-section-down" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 </section>
 
 <!-- ============================================================
@@ -1251,6 +1266,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </p>
     </div>
   </div>
+  <div class="tc-section-down" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 </section>
 
 <!-- ============================================================
@@ -1293,6 +1309,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       @media (min-width:900px){ .tc-solution-grid{ grid-template-columns:repeat(3,1fr)!important; } }
     </style>
   </div>
+  <div class="tc-section-down" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 </section>
 
 <!-- ============================================================
@@ -1371,6 +1388,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       <button class="tc-btn tc-btn-primary" id="tcOpenInstructor" type="button">Become an Instructor</button><!-- LINK: Instructor program popup -->
     </div>
   </div>
+  <div class="tc-section-down" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 </section>
 
 <!-- Instructor dialog -->
@@ -1443,6 +1461,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       <p class="tc-btn-micro" style="text-align:center;">LIFETIME ACCESS ON EVERY SINGLE COURSE</p>
     </div>
   </div>
+  <div class="tc-section-down" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 </section>
 
 <!-- ============================================================
@@ -1464,6 +1483,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       <div class="tc-marquee-track" id="tcCurrRow2"></div>
     </div>
   </div>
+  <div class="tc-section-down" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 </section>
 
 <!-- ============================================================
@@ -1517,6 +1537,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     </div>
     <!-- Agency logos (police academies, military units) only with written permission. -->
   </div>
+  <div class="tc-section-down" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 </section>
 
 <!-- ============================================================
@@ -1546,6 +1567,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </div>
     </div>
   </div>
+  <div class="tc-section-down" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 </section>
 
 <!-- ============================================================
@@ -1561,6 +1583,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       <!-- injected by JS -->
     </div>
   </div>
+  <div class="tc-section-down" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 </section>
 
 <!-- ============================================================
@@ -1592,6 +1615,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </div>
     </div>
   </div>
+  <div class="tc-section-down" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 </section>
 
 <!-- ============================================================
