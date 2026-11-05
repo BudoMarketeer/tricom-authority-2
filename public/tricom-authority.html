@@ -502,22 +502,24 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .tc-stars svg { width: 15px; height: 15px; fill: var(--tc-gold); }
 .tc-trustline .tc-dot { color: var(--tc-gold); }
 
-.tc-hero-h1 { max-width: 16ch; }
 .tc-hero-h1 .tc-line1 { display: block; }
 .tc-typing-wrap {
   display: block;
   min-height: 1.2em;
   padding: 0.12em 0;
+  white-space: nowrap;
 }
 .tc-typed {
   font-family: var(--tc-font-serif);
   font-style: italic;
-  font-weight: 400;
+  font-weight: 600;
+  white-space: nowrap;
   background: linear-gradient(120deg, #F4D77A 0%, var(--tc-gold) 45%, #B8861C 100%);
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
   line-height: 1.2;
 }
+.tc-hero-h1 .tc-typed { font-size: clamp(28px, 5.4vw, 66px); }
 .tc-caret {
   display: inline-block;
   width: 3px; height: 0.9em;
