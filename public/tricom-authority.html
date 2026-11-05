@@ -391,8 +391,43 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .tc-ar-11 { aspect-ratio: 1/1; }
 
 /* grayscale photo treatment when real */
-.tc-ph.real { border-style: solid; border-color: var(--tc-line); }
-.tc-ph.real img { filter: grayscale(1) contrast(1.1); width: 100%; height: 100%; object-fit: cover; }
+.tc-ph.real {
+  padding: 0;
+  border-style: solid;
+  border-color: rgba(218,160,36,0.35);
+  box-shadow: 0 16px 48px -12px rgba(0,0,0,0.7);
+  position: relative;
+}
+.tc-ph.real img {
+  filter: grayscale(1) contrast(1.12);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+.tc-ph.real:hover img {
+  transform: scale(1.05);
+  filter: grayscale(0.5) contrast(1.15);
+}
+.tc-ph-overlay-bottom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(10,10,10,0.85) 100%);
+  pointer-events: none;
+}
+.tc-ph-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  z-index: 2;
+  pointer-events: none;
+}
 
 /* ============================================================
    HERO
@@ -1078,11 +1113,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         </div>
       </div>
       <div class="tc-right tc-reveal">
-        <div class="tc-ph tc-ar-23" data-tc-img="jared-teaching">
-          <svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span class="tc-ph-label">IMAGE: JARED TEACHING A PROFESSIONAL CLASS</span>
-          <span class="tc-ph-desc">Jared instructing officers or operators, B&W, portrait</span>
-          <span class="tc-ph-size">1200 x 1500 px</span>
+        <div class="tc-ph tc-ar-23 real" data-tc-img="jared-teaching">
+          <img
+            src="https://vibe.filesafe.space/1793886878432684230/attachments/5b97dac6-fecf-4591-9b5a-06b65265f040.jpg"
+            alt="Jared Wihongi — TRICOM Founder & Chief Master Instructor"
+            loading="lazy"
+            width="1200"
+            height="1500"
+          />
+          <div class="tc-ph-overlay-bottom"></div>
+          <div class="tc-ph-badge">
+            <span class="tc-ph-label" style="color:var(--tc-gold);">JARED WIHONGI</span>
+            <span class="tc-mono" style="font-size:11px;color:rgba(255,255,255,0.85);letter-spacing:0.1em;">FOUNDER & CHIEF MASTER INSTRUCTOR</span>
+          </div>
         </div>
       </div>
     </div>
