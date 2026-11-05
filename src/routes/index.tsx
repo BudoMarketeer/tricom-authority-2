@@ -1,24 +1,43 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      {
+        title:
+          "TRICOM Training — Real-World Combatives for Law Enforcement, Military & Everyday Protectors",
+      },
+      {
+        name: "description",
+        content:
+          "TRICOM (Triangle Combatives) is the training brand of Survival Edge Tactical Systems, founded by Jared Wihongi. Street-tested, military-proven combatives taught in 40+ countries.",
+      },
+      { property: "og:title", content: "TRICOM Training — Real-World Combatives" },
+      {
+        property: "og:description",
+        content:
+          "Street-tested, military-proven combatives trusted by law enforcement, military and everyday protectors. Taught in 40+ countries.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-vibe-blank-page-placeholder="REMOVE_THIS"
-        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIHJ4PSIyNCIgZmlsbD0iI2YxZWZlNyIvPjxwYXRoIGQ9Ik0xMDAgNjR2NzJNNjQgMTAwaDcyIiBzdHJva2U9IiNjOWM0YjUiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+"
-        alt="Your app will live here!"
-      />
-    </div>
+    <iframe
+      src="/tricom-authority.html"
+      title="TRICOM Training Authority Homepage"
+      style={{
+        position: "fixed",
+        inset: 0,
+        width: "100%",
+        height: "100%",
+        border: "0",
+        display: "block",
+      }}
+    />
   );
 }

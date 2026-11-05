@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TRICOM Training — Real-World Combatives for Law Enforcement, Military & Everyday Protectors</title>
+<meta name="description" content="TRICOM (Triangle Combatives) is the training brand of Survival Edge Tactical Systems, founded by Jared Wihongi. Street-tested, military-proven combatives taught in 40+ countries." />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   TRICOM AUTHORITY HOMEPAGE — self-contained styles
+   Every class/id prefixed tc-. Scoped under .tc-page.
+   ============================================================ */
+
+@property --tc-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+:root {
+  --tc-gold: #DAA024;
+  --tc-black: #0A0A0A;
+  --tc-charcoal: #3B3B3B;
+  --tc-white: #FFFFFF;
+  --tc-red: #A01D20;
+  --tc-red-text: #C92828;
+  --tc-card: #1C1C1C;
+  --tc-line: rgba(255,255,255,0.10);
+  --tc-body: rgba(255,255,255,0.80);
+  --tc-body-strong: rgba(255,255,255,0.92);
+  --tc-mute: rgba(255,255,255,0.55);
+  --tc-radius: 24px;
+  --tc-pill: 999px;
+  --tc-maxw: 1240px;
+  --tc-gutter: 16px;
+  --tc-font-head: "Cabinet Grotesk", system-ui, sans-serif;
+  --tc-font-body: "Satoshi", system-ui, sans-serif;
+  --tc-font-serif: "Instrument Serif", Georgia, serif;
+  --tc-font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+.tc-page {
+  background-color: var(--tc-black);
+  color: var(--tc-white);
+  font-family: var(--tc-font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Diagonal line pattern with radial fade mask */
+.tc-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(135deg,
+    transparent 0,
+    transparent 21px,
+    rgba(218,160,36,0.05) 21px,
+    rgba(218,160,36,0.05) 22px);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 0%, transparent 75%);
+}
+
+.tc-page > * { position: relative; z-index: 1; }
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+/* ---------- Typography helpers ---------- */
+.tc-eyebrow {
+  font-family: var(--tc-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tc-gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.tc-eyebrow::before {
+  content: "";
+  width: 28px; height: 1px;
+  background: var(--tc-gold);
+  opacity: 0.7;
+}
+.tc-h1, .tc-h2, .tc-h3 {
+  font-family: var(--tc-font-head);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  color: var(--tc-white);
+}
+.tc-h1 { font-size: clamp(40px, 6vw, 72px); }
+.tc-h2 { font-size: clamp(32px, 4.6vw, 56px); line-height: 1.12; }
+.tc-h3 { font-size: clamp(22px, 2.4vw, 30px); line-height: 1.2; }
+.tc-serif-accent {
+  font-family: var(--tc-font-serif);
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(120deg, #F4D77A 0%, var(--tc-gold) 45%, #B8861C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  line-height: 1.2;
+  padding: 0.12em 0;
+}
+.tc-mono { font-family: var(--tc-font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
+.tc-body { color: var(--tc-body); font-size: 17px; line-height: 1.6; max-width: 68ch; }
+.tc-body strong { color: var(--tc-body-strong); font-weight: 500; }
+
+/* ---------- Layout ---------- */
+.tc-section {
+  padding: 88px var(--tc-gutter);
+  position: relative;
+}
+.tc-container { max-width: var(--tc-maxw); margin: 0 auto; width: 100%; }
+.tc-center { text-align: center; }
+.tc-stack { display: flex; flex-direction: column; gap: 24px; }
+
+@media (min-width: 768px) {
+  :root { --tc-gutter: 32px; }
+  .tc-section { padding: 112px var(--tc-gutter); }
+}
+
+/* Tone variants */
+.tc-tone-charcoal { background: linear-gradient(180deg, #121212 0%, var(--tc-black) 100%); }
+.tc-tone-red {
+  background-color: var(--tc-red);
+  background-image: repeating-linear-gradient(135deg,
+    transparent 0, transparent 21px,
+    rgba(255,255,255,0.05) 21px, rgba(255,255,255,0.05) 22px);
+}
+.tc-tone-red .tc-body { color: rgba(255,255,255,0.88); }
+.tc-tone-red .tc-eyebrow { color: #FFD98A; }
+.tc-tone-red .tc-eyebrow::before { background: #FFD98A; }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.tc-btn-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.tc-btn-row.tc-center { justify-content: center; }
+
+.tc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--tc-font-head);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  padding: 18px 30px;
+  border-radius: var(--tc-pill);
+  white-space: nowrap;
+  position: relative;
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+  isolation: isolate;
+}
+
+/* Primary: animated conic gradient border */
+.tc-btn-primary {
+  background: var(--tc-black);
+  color: var(--tc-white);
+}
+.tc-btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--tc-pill);
+  padding: 1.5px;
+  background: conic-gradient(from var(--tc-angle),
+    transparent 0deg,
+    transparent 200deg,
+    var(--tc-gold) 250deg,
+    var(--tc-red-text) 290deg,
+    var(--tc-gold) 330deg,
+    transparent 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+  animation: tc-angle-spin 4s linear infinite;
+}
+@keyframes tc-angle-spin {
+  /* corners: long sides 20% each, short sides 30% each */
+  0%   { --tc-angle: 0deg; }
+  20%  { --tc-angle: 90deg; }
+  50%  { --tc-angle: 180deg; }
+  70%  { --tc-angle: 270deg; }
+  100% { --tc-angle: 360deg; }
+}
+.tc-btn-primary:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 40px -10px rgba(218,160,36,0.55);
+}
+.tc-btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--tc-pill);
+  box-shadow: inset 0 0 0 0 rgba(218,160,36,0);
+  transition: box-shadow 0.25s ease-out;
+  pointer-events: none;
+  z-index: -1;
+}
+.tc-btn-primary:hover::after {
+  box-shadow: inset 0 -48px 32px -24px rgba(218,160,36,0.30);
+}
+
+/* Secondary: outlined pill */
+.tc-btn-secondary {
+  background: transparent;
+  color: var(--tc-white);
+  border: 1px solid rgba(255,255,255,0.30);
+  padding: 17px 28px;
+  border-radius: var(--tc-pill);
+  font-family: var(--tc-font-head);
+  font-weight: 700;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.tc-btn-secondary:hover { border-color: var(--tc-gold); transform: translateY(-1px); }
+.tc-btn-secondary .tc-arrow { transition: transform 0.25s ease; display: inline-block; }
+.tc-btn-secondary:hover .tc-arrow { transform: translateX(4px); }
+
+.tc-btn-micro {
+  font-family: var(--tc-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tc-mute);
+  margin-top: 18px;
+  width: 100%;
+}
+
+/* ============================================================
+   ANNOUNCEMENT BAR
+   ============================================================ */
+.tc-announce {
+  height: 40px;
+  background: var(--tc-black);
+  border-bottom: 1px solid rgba(218,160,36,0.35);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.tc-announce-track {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  white-space: nowrap;
+  animation: tc-marquee-x 40s linear infinite;
+  padding-left: 100%;
+}
+.tc-announce:hover .tc-announce-track { animation-play-state: paused; }
+.tc-announce-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--tc-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.82);
+}
+.tc-announce-item svg { width: 14px; height: 14px; stroke: var(--tc-gold); flex: none; }
+.tc-announce-dot { color: var(--tc-gold); }
+@keyframes tc-marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.tc-header {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--tc-line);
+  background: rgba(10,10,10,0.92);
+}
+.tc-header-inner {
+  max-width: var(--tc-maxw);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 var(--tc-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.tc-logo { display: flex; align-items: center; gap: 12px; flex: none; }
+.tc-logo-mark {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--tc-gold), #8a6a14);
+  display: grid; place-items: center;
+  color: var(--tc-black);
+  font-family: var(--tc-font-head);
+  font-weight: 800;
+  font-size: 18px;
+}
+.tc-logo-word { font-family: var(--tc-font-head); font-weight: 800; font-size: 20px; letter-spacing: 0.02em; }
+.tc-logo-word span { color: var(--tc-gold); }
+
+.tc-nav { display: none; align-items: center; gap: 28px; }
+.tc-nav a {
+  font-size: 15px; font-weight: 500; color: var(--tc-body);
+  transition: color 0.2s ease; position: relative;
+}
+.tc-nav a:hover { color: var(--tc-white); }
+.tc-nav a::after {
+  content: ""; position: absolute; left: 0; bottom: -6px; height: 2px; width: 0;
+  background: var(--tc-gold); transition: width 0.25s ease;
+}
+.tc-nav a:hover::after { width: 100%; }
+
+.tc-header-cta { display: flex; align-items: center; gap: 14px; }
+.tc-burger { display: flex; flex-direction: column; gap: 5px; padding: 8px; }
+.tc-burger span { width: 24px; height: 2px; background: var(--tc-white); border-radius: 2px; transition: 0.3s; }
+
+@media (min-width: 1024px) {
+  .tc-nav { display: flex; }
+  .tc-burger { display: none; }
+}
+
+/* Mobile menu */
+.tc-mobile-menu {
+  position: fixed; inset: 0; z-index: 200;
+  background: var(--tc-black);
+  display: flex; flex-direction: column;
+  padding: 24px var(--tc-gutter);
+  transform: translateX(100%);
+  transition: transform 0.35s ease;
+}
+.tc-mobile-menu.open { transform: translateX(0); }
+.tc-mobile-menu a {
+  font-family: var(--tc-font-head); font-weight: 700; font-size: 26px;
+  padding: 16px 0; border-bottom: 1px solid var(--tc-line); color: var(--tc-white);
+}
+.tc-mobile-close { align-self: flex-end; font-size: 28px; color: var(--tc-gold); padding: 8px 12px; }
+
+/* ============================================================
+   IMAGE PLACEHOLDERS
+   ============================================================ */
+.tc-ph {
+  position: relative;
+  background: var(--tc-charcoal);
+  border: 1px dashed rgba(218,160,36,0.5);
+  border-radius: var(--tc-radius);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 24px;
+  overflow: hidden;
+  color: rgba(255,255,255,0.7);
+}
+.tc-ph svg.tc-ph-icon { width: 32px; height: 32px; stroke: var(--tc-gold); flex: none; }
+.tc-ph-label { font-family: var(--tc-font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tc-gold); }
+.tc-ph-desc { font-size: 13px; color: var(--tc-mute); max-width: 30ch; line-height: 1.5; }
+.tc-ph-size { font-family: var(--tc-font-mono); font-size: 11px; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); }
+
+/* aspect helpers */
+.tc-ar-43 { aspect-ratio: 4/3; }
+.tc-ar-169 { aspect-ratio: 16/9; }
+.tc-ar-23 { aspect-ratio: 2/3; }
+.tc-ar-85 { aspect-ratio: 8/5; }
+.tc-ar-1610 { aspect-ratio: 16/10; }
+.tc-ar-11 { aspect-ratio: 1/1; }
+
+/* grayscale photo treatment when real */
+.tc-ph.real { border-style: solid; border-color: var(--tc-line); }
+.tc-ph.real img { filter: grayscale(1) contrast(1.1); width: 100%; height: 100%; object-fit: cover; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.tc-hero {
+  position: relative;
+  padding: 64px var(--tc-gutter) 72px;
+  overflow: hidden;
+}
+.tc-hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.tc-hero-slide {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.tc-hero-slide.active { opacity: 1; }
+.tc-hero-overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.82) 60%, var(--tc-black) 100%),
+    linear-gradient(90deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.35) 60%, rgba(10,10,10,0.6) 100%);
+}
+.tc-hero-glow {
+  position: absolute; left: 50%; top: 18%;
+  width: 70vw; max-width: 900px; height: 600px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(218,160,36,0.22) 0%, transparent 65%);
+  pointer-events: none; z-index: 0;
+}
+.tc-hero-vignette {
+  position: absolute; inset: 0;
+  box-shadow: inset 0 0 220px 60px rgba(10,10,10,0.9);
+  pointer-events: none;
+}
+.tc-hero-inner {
+  position: relative; z-index: 2;
+  max-width: var(--tc-maxw); margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: 26px;
+}
+.tc-trustline {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--tc-font-mono); font-size: 12px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--tc-body-strong);
+  flex-wrap: wrap; justify-content: center;
+}
+.tc-stars { display: inline-flex; gap: 2px; }
+.tc-stars svg { width: 15px; height: 15px; fill: var(--tc-gold); }
+.tc-trustline .tc-dot { color: var(--tc-gold); }
+
+.tc-hero-h1 { max-width: 16ch; }
+.tc-hero-h1 .tc-line1 { display: block; }
+.tc-typing-wrap {
+  display: block;
+  min-height: 1.2em;
+  padding: 0.12em 0;
+}
+.tc-typed {
+  font-family: var(--tc-font-serif);
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(120deg, #F4D77A 0%, var(--tc-gold) 45%, #B8861C 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  line-height: 1.2;
+}
+.tc-caret {
+  display: inline-block;
+  width: 3px; height: 0.9em;
+  background: var(--tc-gold);
+  margin-left: 4px;
+  vertical-align: -0.05em;
+  animation: tc-blink 1s steps(1) infinite;
+}
+.tc-caret.hide { opacity: 0; animation: none; }
+@keyframes tc-blink { 50% { opacity: 0; } }
+
+.tc-hero-sub { font-size: clamp(16px, 2vw, 21px); color: var(--tc-body); max-width: 60ch; line-height: 1.55; }
+
+/* Stat columns */
+.tc-stats { display: grid; grid-template-columns: 1fr; gap: 18px; width: 100%; margin-top: 18px; }
+.tc-stat {
+  position: relative;
+  padding: 28px 24px;
+  text-align: center;
+}
+.tc-stat::before {
+  content: ""; position: absolute; inset: 0;
+  border-radius: var(--tc-radius);
+  padding: 1px;
+  background: linear-gradient(90deg, var(--tc-gold) 0%, transparent 35%, transparent 65%, var(--tc-gold) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  pointer-events: none;
+}
+.tc-stat-num {
+  font-family: var(--tc-font-head); font-weight: 800;
+  font-size: clamp(38px, 5vw, 56px);
+  color: var(--tc-gold);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.tc-stat-label {
+  font-family: var(--tc-font-mono); font-size: 12px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--tc-mute); margin-top: 12px;
+  max-width: 24ch; margin-left: auto; margin-right: auto;
+}
+@media (min-width: 768px) {
+  .tc-stats { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Partner logos quiet line */
+.tc-partners {
+  margin-top: 14px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 14px 28px;
+  opacity: 0.7;
+}
+.tc-partners .tc-mono { color: var(--tc-mute); font-size: 11px; }
+.tc-partner-logo {
+  font-family: var(--tc-font-head); font-weight: 700; font-size: 14px;
+  color: rgba(255,255,255,0.6); letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   MARQUEES (shared)
+   ============================================================ */
+.tc-marquee {
+  position: relative; overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+}
+.tc-marquee-track {
+  display: flex; gap: 20px; width: max-content;
+  animation: tc-marquee-x 50s linear infinite;
+}
+.tc-marquee:hover .tc-marquee-track { animation-play-state: paused; }
+.tc-marquee.rev .tc-marquee-track { animation-direction: reverse; animation-duration: 60s; }
+.tc-marquee.slow .tc-marquee-track { animation-duration: 60s; }
+
+/* Product marquee cards */
+.tc-pcard {
+  flex: none; width: 280px;
+  background: var(--tc-card);
+  border: 1px solid var(--tc-line);
+  border-radius: var(--tc-radius);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.tc-pcard:hover { transform: translateY(-4px); border-color: rgba(218,160,36,0.6); box-shadow: 0 10px 40px -12px rgba(218,160,36,0.4); }
+.tc-pcard .tc-ph { border-radius: 0; aspect-ratio: 16/9; border: none; border-bottom: 1px solid var(--tc-line); }
+.tc-pcard-body { padding: 18px 20px 22px; }
+.tc-pcard-name { font-family: var(--tc-font-head); font-weight: 700; font-size: 16px; line-height: 1.25; }
+.tc-pcard-price { font-family: var(--tc-font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tc-gold); margin-top: 10px; }
+
+/* Curriculum marquee cards */
+.tc-ccard {
+  flex: none; width: 300px;
+  background: var(--tc-card);
+  border: 1px solid var(--tc-line);
+  border-radius: var(--tc-radius);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.tc-ccard:hover { border-color: rgba(218,160,36,0.6); box-shadow: 0 10px 40px -12px rgba(218,160,36,0.4); }
+.tc-ccard .tc-ph { border-radius: 0; aspect-ratio: 16/9; border: none; transition: transform 0.4s ease; }
+.tc-ccard:hover .tc-ph img { transform: scale(1.06); }
+.tc-ccard-name { padding: 16px 20px 20px; font-family: var(--tc-font-head); font-weight: 700; font-size: 15px; }
+
+.tc-curr-rows { display: flex; flex-direction: column; gap: 18px; }
+.tc-curr-row2 { transform: translateX(-8%); }
+
+/* ============================================================
+   CARDS (generic)
+   ============================================================ */
+.tc-card {
+  background: var(--tc-card);
+  border: 1px solid var(--tc-line);
+  border-radius: var(--tc-radius);
+  padding: 32px;
+}
+.tc-card-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: rgba(218,160,36,0.12);
+  border: 1px solid rgba(218,160,36,0.3);
+  display: grid; place-items: center;
+  margin-bottom: 20px;
+}
+.tc-card-icon svg { width: 22px; height: 22px; stroke: var(--tc-gold); }
+.tc-card-icon.red { background: rgba(201,40,40,0.12); border-color: rgba(201,40,40,0.35); }
+.tc-card-icon.red svg { stroke: var(--tc-red-text); }
+.tc-card h3 { margin-bottom: 12px; }
+.tc-card p { color: var(--tc-body); font-size: 15px; line-height: 1.55; }
+
+.tc-check-card {
+  display: flex; gap: 16px; align-items: flex-start;
+  background: var(--tc-card);
+  border: 1px solid var(--tc-line);
+  border-radius: var(--tc-radius);
+  padding: 22px 24px;
+}
+.tc-check-icon { flex: none; width: 28px; height: 28px; border-radius: 8px; background: rgba(201,40,40,0.14); display: grid; place-items: center; }
+.tc-check-icon svg { width: 16px; height: 16px; stroke: var(--tc-red-text); }
+.tc-check-card .tc-pain { font-family: var(--tc-font-head); font-weight: 700; font-size: 17px; line-height: 1.3; }
+.tc-check-card .tc-sub { font-size: 14px; color: var(--tc-body); margin-top: 6px; line-height: 1.5; }
+
+/* Two column block */
+.tc-two { display: grid; grid-template-columns: 1fr; gap: 36px; align-items: center; }
+@media (min-width: 900px) { .tc-two { grid-template-columns: 1fr 1fr; gap: 56px; } }
+.tc-two .tc-left, .tc-two .tc-right { display: flex; flex-direction: column; gap: 22px; }
+
+/* Step microcopy */
+.tc-step-micro {
+  font-family: var(--tc-font-mono); font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--tc-gold);
+  display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;
+}
+
+/* Bounce arrow */
+.tc-bounce-arrow {
+  display: flex; justify-content: center; margin-top: 56px;
+}
+.tc-bounce-arrow svg { width: 30px; height: 30px; stroke: var(--tc-gold); animation: tc-bounce 2s ease-in-out infinite; }
+@keyframes tc-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+
+/* ============================================================
+   BENTO GRID
+   ============================================================ */
+.tc-bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  grid-auto-rows: minmax(150px, auto);
+}
+.tc-bento-card {
+  background: var(--tc-card);
+  border: 1px solid var(--tc-line);
+  border-radius: var(--tc-radius);
+  padding: 24px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  gap: 14px;
+  overflow: hidden;
+  position: relative;
+}
+.tc-bento-card.gold-glow { background: radial-gradient(ellipse at top right, rgba(218,160,36,0.16), var(--tc-card) 60%); }
+.tc-bento-card.red-accent { background: linear-gradient(160deg, rgba(201,40,40,0.22), var(--tc-card) 70%); }
+.tc-bento-card .tc-ph { position: absolute; inset: 0; border: none; border-radius: var(--tc-radius); opacity: 0.18; z-index: 0; }
+.tc-bento-card > * { position: relative; z-index: 1; }
+.tc-bento-card .tc-bento-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.tc-bento-card .tc-bento-name { font-family: var(--tc-font-head); font-weight: 800; font-size: clamp(18px, 2vw, 26px); line-height: 1.15; }
+.tc-bento-card .tc-bento-desc { font-size: 14px; color: var(--tc-body); line-height: 1.5; }
+.tc-bento-card .tc-price-tag { font-family: var(--tc-font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tc-gold); }
+
+/* bento spans */
+.tc-bs-6 { grid-column: span 12; }
+.tc-bs-3 { grid-column: span 12; }
+@media (min-width: 768px) {
+  .tc-bs-6 { grid-column: span 6; }
+  .tc-bs-3 { grid-column: span 3; }
+}
+@media (min-width: 1024px) {
+  .tc-bs-6 { grid-column: span 6; grid-row: span 2; }
+  .tc-bs-3 { grid-column: span 3; }
+}
+
+/* ============================================================
+   DIALOG (instructor popup)
+   ============================================================ */
+.tc-dialog {
+  border: 1px solid rgba(218,160,36,0.4);
+  border-radius: var(--tc-radius);
+  background: var(--tc-black);
+  color: var(--tc-white);
+  padding: 0;
+  max-width: 880px; width: calc(100% - 32px);
+  background-image: repeating-linear-gradient(135deg, transparent 0, transparent 21px, rgba(218,160,36,0.04) 21px, rgba(218,160,36,0.04) 22px);
+}
+.tc-dialog::backdrop { background: rgba(0,0,0,0.78); backdrop-filter: blur(4px); }
+.tc-dialog-inner { padding: 36px 28px; position: relative; max-height: 88vh; overflow-y: auto; }
+.tc-dialog-close {
+  position: absolute; top: 18px; right: 18px;
+  width: 40px; height: 40px; border-radius: var(--tc-pill);
+  border: 1px solid var(--tc-line); display: grid; place-items: center;
+  color: var(--tc-white); transition: border-color 0.2s, color 0.2s;
+}
+.tc-dialog-close:hover { border-color: var(--tc-gold); color: var(--tc-gold); }
+.tc-dialog h2 { margin-bottom: 14px; }
+.tc-dialog-intro { color: var(--tc-body); margin-bottom: 24px; max-width: 64ch; }
+.tc-dialog-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 600px) { .tc-dialog-grid { grid-template-columns: repeat(2, 1fr); } }
+.tc-dialog-card { background: var(--tc-card); border: 1px solid var(--tc-line); border-radius: 18px; overflow: hidden; }
+.tc-dialog-card .tc-ph { border-radius: 0; border: none; aspect-ratio: 16/9; border-bottom: 1px solid var(--tc-line); }
+.tc-dialog-card .tc-dc-name { padding: 14px 18px; font-family: var(--tc-font-head); font-weight: 700; font-size: 15px; }
+.tc-dialog-actions { margin-top: 26px; display: flex; justify-content: center; }
+
+/* ============================================================
+   FEATURE GRID (sneak peek)
+   ============================================================ */
+.tc-feat-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 600px) { .tc-feat-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .tc-feat-grid { grid-template-columns: repeat(4, 1fr); } }
+.tc-feat {
+  background: var(--tc-card);
+  border: 1px solid var(--tc-line);
+  border-radius: var(--tc-radius);
+  padding: 26px 24px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.tc-feat:hover { border-color: rgba(218,160,36,0.5); transform: translateY(-3px); }
+.tc-feat p { color: var(--tc-body); font-size: 14.5px; line-height: 1.55; }
+
+/* ============================================================
+   INSTRUCTORS
+   ============================================================ */
+.tc-instructor-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 560px) { .tc-instructor-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .tc-instructor-grid { grid-template-columns: repeat(4, 1fr); } }
+.tc-instructor-card { background: var(--tc-card); border: 1px solid var(--tc-line); border-radius: var(--tc-radius); overflow: hidden; }
+.tc-instructor-card .tc-ph { border-radius: 0; border: none; border-bottom: 1px solid var(--tc-line); }
+.tc-instructor-card .tc-ic-body { padding: 18px 20px 22px; }
+.tc-ic-name { font-family: var(--tc-font-head); font-weight: 700; font-size: 17px; }
+.tc-ic-loc { font-family: var(--tc-font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tc-gold); margin-top: 6px; }
+.tc-ic-role { font-size: 13px; color: var(--tc-mute); margin-top: 8px; }
+
+/* Logo marquee */
+.tc-logo-marquee .tc-marquee-track { gap: 56px; align-items: center; }
+.tc-logo-item {
+  flex: none;
+  font-family: var(--tc-font-head); font-weight: 700; font-size: 18px;
+  color: rgba(255,255,255,0.4); letter-spacing: 0.02em;
+  transition: color 0.3s ease, filter 0.3s ease;
+  filter: grayscale(1);
+  white-space: nowrap;
+}
+.tc-logo-item:hover { color: var(--tc-white); filter: grayscale(0); }
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.tc-testi-grid { columns: 1; column-gap: 16px; }
+@media (min-width: 600px) { .tc-testi-grid { columns: 2; } }
+@media (min-width: 1024px) { .tc-testi-grid { columns: 3; } }
+.tc-testi {
+  break-inside: avoid;
+  background: var(--tc-card);
+  border: 1px solid var(--tc-line);
+  border-radius: var(--tc-radius);
+  padding: 26px 24px;
+  margin-bottom: 16px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.tc-testi-placeholder {
+  font-family: var(--tc-font-mono); font-size: 12px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--tc-gold);
+  padding: 18px; border: 1px dashed rgba(218,160,36,0.4); border-radius: 14px;
+  text-align: center;
+}
+.tc-testi-head { display: flex; align-items: center; gap: 14px; }
+.tc-testi-head .tc-ph { width: 48px; height: 48px; border-radius: var(--tc-pill); padding: 0; flex: none; }
+.tc-testi-name { font-family: var(--tc-font-head); font-weight: 700; font-size: 15px; }
+.tc-testi-role { font-size: 13px; color: var(--tc-mute); }
+.tc-google-card {
+  break-inside: avoid;
+  background: var(--tc-card); border: 1px solid var(--tc-line); border-radius: var(--tc-radius);
+  padding: 40px; margin-bottom: 16px; text-align: center;
+  min-height: 200px; display: grid; place-items: center;
+}
+.tc-google-card .tc-mono { color: var(--tc-gold); }
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.tc-faq { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.tc-faq-item {
+  background: var(--tc-card);
+  border: 1px solid var(--tc-line);
+  border-radius: var(--tc-radius);
+  overflow: hidden;
+}
+.tc-faq-q {
+  width: 100%; text-align: left; padding: 22px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  font-family: var(--tc-font-head); font-weight: 700; font-size: 17px; line-height: 1.3;
+}
+.tc-faq-q .tc-faq-toggle { flex: none; width: 28px; height: 28px; display: grid; place-items: center; transition: transform 0.3s ease; color: var(--tc-gold); }
+.tc-faq-item.open .tc-faq-toggle { transform: rotate(45deg); }
+.tc-faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.tc-faq-a-inner { padding: 0 24px 24px; color: var(--tc-body); font-size: 15px; line-height: 1.6; }
+
+/* ============================================================
+   NEWSLETTER
+   ============================================================ */
+.tc-news-glow {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+  width: 80vw; max-width: 800px; height: 500px;
+  background: radial-gradient(ellipse at center, rgba(218,160,36,0.22), transparent 65%);
+  pointer-events: none;
+}
+.tc-news-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr; gap: 36px; align-items: center; }
+@media (min-width: 900px) { .tc-news-inner { grid-template-columns: 1.1fr 0.9fr; gap: 56px; } }
+.tc-form-placeholder {
+  border: 1px dashed rgba(218,160,36,0.45);
+  border-radius: var(--tc-radius);
+  padding: 32px;
+  background: rgba(28,28,28,0.6);
+  display: flex; flex-direction: column; gap: 16px;
+}
+.tc-form-field {
+  height: 52px; border-radius: 14px; border: 1px solid var(--tc-line);
+  background: var(--tc-black); display: flex; align-items: center; padding: 0 18px;
+  color: var(--tc-mute); font-size: 15px;
+}
+.tc-form-field.tc-mono { font-family: var(--tc-font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.tc-footer { border-top: 1px solid var(--tc-line); padding: 72px var(--tc-gutter) 40px; }
+.tc-footer-inner { max-width: var(--tc-maxw); margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 40px; }
+@media (min-width: 768px) { .tc-footer-inner { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
+.tc-footer-brand { display: flex; flex-direction: column; gap: 16px; max-width: 36ch; }
+.tc-footer-brand p { color: var(--tc-body); font-size: 15px; }
+.tc-footer-col h4 { font-family: var(--tc-font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tc-gold); margin-bottom: 16px; }
+.tc-footer-col a { display: block; color: var(--tc-body); font-size: 15px; padding: 7px 0; transition: color 0.2s; }
+.tc-footer-col a:hover { color: var(--tc-white); }
+.tc-footer-bottom { max-width: var(--tc-maxw); margin: 48px auto 0; padding-top: 28px; border-top: 1px solid var(--tc-line); display: flex; flex-direction: column; gap: 18px; align-items: center; text-align: center; }
+@media (min-width: 768px) { .tc-footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; } }
+.tc-footer-bottom .tc-mono { color: var(--tc-mute); font-size: 12px; }
+.tc-footer-contact { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+@media (min-width: 768px) { .tc-footer-contact { align-items: flex-end; } }
+.tc-footer-contact a { color: var(--tc-white); font-size: 15px; }
+.tc-socials { display: flex; gap: 12px; margin-top: 8px; }
+.tc-socials a { width: 40px; height: 40px; border-radius: var(--tc-pill); border: 1px solid var(--tc-line); display: grid; place-items: center; transition: border-color 0.2s, color 0.2s; color: var(--tc-body); }
+.tc-socials a:hover { border-color: var(--tc-gold); color: var(--tc-gold); }
+.tc-socials svg { width: 18px; height: 18px; }
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.tc-reveal { opacity: 1; transform: none; transition: opacity 0.7s ease, transform 0.7s ease; }
+@media (prefers-reduced-motion: no-preference) {
+  .tc-reveal { opacity: 0; transform: translateY(28px); }
+  .tc-reveal.in { opacity: 1; transform: none; }
+}
+
+/* Reduced motion: kill animations, show final state */
+@media (prefers-reduced-motion: reduce) {
+  .tc-announce-track, .tc-marquee-track, .tc-bounce-arrow svg, .tc-btn-primary::before, .tc-caret { animation: none !important; }
+  .tc-reveal { opacity: 1 !important; transform: none !important; }
+  .tc-hero-slide { transition: none; }
+  .tc-hero-slide.active { opacity: 1; }
+  .tc-typed::after { content: "Self-Defense Training"; }
+  html { scroll-behavior: auto; }
+}
+
+/* Focus states */
+.tc-page :focus-visible { outline: 2px solid var(--tc-gold); outline-offset: 3px; border-radius: 6px; }
+
+/* Section heading block helper */
+.tc-head-block { display: flex; flex-direction: column; gap: 18px; max-width: 720px; }
+.tc-head-block.tc-center { margin: 0 auto; align-items: center; text-align: center; }
+.tc-section-title { margin-bottom: 8px; }
+
+/* utility */
+.tc-mt-40 { margin-top: 40px; }
+.tc-mt-56 { margin-top: 56px; }
+.tc-hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="tc-page">
+
+<!-- ============================================================
+     ANNOUNCEMENT BAR
+     ============================================================ -->
+<div class="tc-announce" aria-label="Announcements">
+  <div class="tc-announce-track" id="tcAnnounceTrack">
+    <!-- track content duplicated by JS for seamless loop -->
+    <span class="tc-announce-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>[LATEST OFFER: TRICOM FUNDAMENTALS TF12, JOIN THE WAITLIST]</span>
+    <span class="tc-announce-dot">●</span>
+    <span class="tc-announce-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>NEW: COUNTER ASSAULT TACTICS (C.A.T.) ONLINE</span>
+    <span class="tc-announce-dot">●</span>
+    <span class="tc-announce-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/></svg>SELF-DEFENSE & COMBAT SYSTEM FROM $39/MONTH</span>
+    <span class="tc-announce-dot">●</span>
+    <span class="tc-announce-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/></svg>LAW ENFORCEMENT & MILITARY PRICING AVAILABLE</span>
+    <span class="tc-announce-dot">●</span>
+    <span class="tc-announce-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg>TRAINING IN 40+ COUNTRIES</span>
+    <span class="tc-announce-dot">●</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="tc-header">
+  <div class="tc-header-inner">
+    <a class="tc-logo" href="#">
+      <!-- LINK: Home -->
+      <span class="tc-logo-mark">T</span>
+      <span class="tc-logo-word">TRI<span>COM</span></span>
+    </a>
+    <nav class="tc-nav" aria-label="Primary">
+      <a href="#">Online Training</a><!-- LINK: Online Training -->
+      <a href="#">Live Courses</a><!-- LINK: Live course calendar -->
+      <a href="#">Instructor Program</a><!-- LINK: Instructor program -->
+      <a href="#">Team</a><!-- LINK: Team -->
+      <a href="#">About</a><!-- LINK: About -->
+      <a href="#">Shop</a><!-- LINK: Shop -->
+      <a href="#">Login</a><!-- LINK: Member login -->
+    </nav>
+    <div class="tc-header-cta">
+      <a class="tc-btn tc-btn-primary" href="#">Start Training</a><!-- LINK: Online Training -->
+      <button class="tc-burger" id="tcBurger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="tc-mobile-menu" id="tcMobileMenu" aria-hidden="true">
+  <button class="tc-mobile-close" id="tcMobileClose" aria-label="Close menu">&times;</button>
+  <a href="#">Online Training</a><!-- LINK: Online Training -->
+  <a href="#">Live Courses</a><!-- LINK: Live course calendar -->
+  <a href="#">Instructor Program</a><!-- LINK: Instructor program -->
+  <a href="#">Team</a><!-- LINK: Team -->
+  <a href="#">About</a><!-- LINK: About -->
+  <a href="#">Shop</a><!-- LINK: Shop -->
+  <a href="#">Login</a><!-- LINK: Member login -->
+  <a class="tc-btn tc-btn-primary" href="#" style="margin-top:24px;">Start Training</a><!-- LINK: Online Training -->
+</div>
+
+<!-- ============================================================
+     SECTION 1: HERO
+     ============================================================ -->
+<section class="tc-hero" aria-label="Hero">
+  <div class="tc-hero-bg">
+    <div class="tc-hero-slide active" data-hero="0">
+      <div class="tc-ph real" style="position:absolute;inset:0;border:none;border-radius:0;">
+        <!-- IMAGE: HERO 1, Self-Defense Training -->
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:rgba(255,255,255,0.5);">
+          <svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:40px;height:40px;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="tc-ph-label">IMAGE: HERO 1</span>
+          <span class="tc-ph-desc">Civilian student defending against a grab in a class, B&W</span>
+          <span class="tc-ph-size">1600 x 1200 px</span>
+        </div>
+      </div>
+    </div>
+    <div class="tc-hero-slide" data-hero="1">
+      <div class="tc-ph real" style="position:absolute;inset:0;border:none;border-radius:0;">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:rgba(255,255,255,0.5);">
+          <svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:40px;height:40px;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="tc-ph-label">IMAGE: HERO 2</span>
+          <span class="tc-ph-desc">Close-quarter clinch or strike drill, sweat and intensity, B&W</span>
+          <span class="tc-ph-size">1600 x 1200 px</span>
+        </div>
+      </div>
+    </div>
+    <div class="tc-hero-slide" data-hero="2">
+      <div class="tc-ph real" style="position:absolute;inset:0;border:none;border-radius:0;">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:rgba(255,255,255,0.5);">
+          <svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:40px;height:40px;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="tc-ph-label">IMAGE: HERO 3</span>
+          <span class="tc-ph-desc">Training knife or expandable baton drill with Jared coaching, B&W</span>
+          <span class="tc-ph-size">1600 x 1200 px</span>
+        </div>
+      </div>
+    </div>
+    <div class="tc-hero-slide" data-hero="3">
+      <div class="tc-ph real" style="position:absolute;inset:0;border:none;border-radius:0;">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:rgba(255,255,255,0.5);">
+          <svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:40px;height:40px;"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="tc-ph-label">IMAGE: HERO 4</span>
+          <span class="tc-ph-desc">Close-quarters firearm retention or draw drill with a training gun, B&W</span>
+          <span class="tc-ph-size">1600 x 1200 px</span>
+        </div>
+      </div>
+    </div>
+    <div class="tc-hero-overlay"></div>
+    <div class="tc-hero-glow"></div>
+    <div class="tc-hero-vignette"></div>
+  </div>
+
+  <div class="tc-hero-inner">
+    <div class="tc-trustline">
+      <span class="tc-stars" aria-label="5 out of 5 stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+      </span>
+      <span>3,500+ course enrollments</span>
+      <span class="tc-dot">·</span>
+      <span>Taught in 40+ countries</span>
+    </div>
+
+    <h1 class="tc-h1 tc-hero-h1">
+      <span class="tc-line1">Your premium resource for</span>
+      <span class="tc-typing-wrap"><span class="tc-typed" id="tcTyped"></span><span class="tc-caret" id="tcCaret"></span></span>
+    </h1>
+
+    <p class="tc-hero-sub">Join the community, courses and coaching trusted by law enforcement, military and everyday protectors to master real-world combatives.</p>
+
+    <div class="tc-btn-row tc-center">
+      <a class="tc-btn tc-btn-primary" href="#">Start Training</a><!-- LINK: Online Training -->
+      <a class="tc-btn tc-btn-secondary" href="#">Find a Live Course <span class="tc-arrow">→</span></a><!-- LINK: Live course calendar -->
+    </div>
+    <p class="tc-btn-micro tc-center" style="text-align:center;">LIFETIME ACCESS · CERTIFICATES OF COMPLETION · OPERATOR OR TRAIN-THE-TRAINER</p>
+
+    <div class="tc-stats">
+      <div class="tc-stat tc-reveal">
+        <div class="tc-stat-num" data-count="25" data-suffix="+">0</div>
+        <div class="tc-stat-label">Years of SWAT and police instruction behind the system</div>
+      </div>
+      <div class="tc-stat tc-reveal">
+        <div class="tc-stat-num" data-count="40" data-suffix="+">0</div>
+        <div class="tc-stat-label">Countries where TRICOM has been taught</div>
+      </div>
+      <div class="tc-stat tc-reveal">
+        <div class="tc-stat-num" data-count="3500" data-suffix="+">0</div>
+        <div class="tc-stat-label">Course enrollments</div>
+      </div>
+    </div>
+
+    <div class="tc-partners" aria-label="Industry partners">
+      <span class="tc-mono">Trusted by</span>
+      <span class="tc-partner-logo">5.11 ABR Academy</span>
+      <span class="tc-partner-logo">Recoil</span>
+      <span class="tc-partner-logo">Funker Tactical</span>
+      <span class="tc-partner-logo">Gym Jones</span>
+      <span class="tc-partner-logo">Halfbreed Blades</span>
+      <span class="tc-partner-logo">Bastinelli</span>
+      <span class="tc-partner-logo">Browning</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2: THE PROBLEM AND THE PROOF
+     ============================================================ -->
+<section class="tc-section" aria-label="The problem and the proof">
+  <div class="tc-container">
+    <div class="tc-head-block tc-center tc-reveal" style="margin-bottom:48px;">
+      <span class="tc-eyebrow">Built where training meets reality</span>
+      <h2 class="tc-h2">Most self-defense falls apart under adrenaline. <span class="tc-serif-accent">TRICOM doesn't.</span></h2>
+    </div>
+  </div>
+
+  <!-- Product marquee -->
+  <div class="tc-marquee" style="margin-bottom:64px;">
+    <div class="tc-marquee-track" id="tcProductTrack">
+      <!-- cards injected by JS -->
+    </div>
+  </div>
+
+  <div class="tc-container">
+    <div class="tc-two">
+      <div class="tc-left tc-reveal">
+        <h2 class="tc-h2" style="font-size:clamp(26px,3.4vw,40px);">Fine motor skills vanish in the first seconds of an attack. We built around what still works.</h2>
+        <p class="tc-body">TRICOM is built on gross motor tactics proven on the street, on SWAT teams and with Special Forces. The system holds up when your hands shake and your vision narrows.</p>
+        <div class="tc-stack" style="gap:14px;">
+          <div class="tc-card">
+            <div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <h3 class="tc-h3">Street-tested</h3>
+            <p>Forged as a bouncer, a street cop and a SWAT operator.</p>
+          </div>
+          <div class="tc-card">
+            <div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <h3 class="tc-h3">Military-proven</h3>
+            <p>Taught to US Army Special Forces combatives students.</p>
+          </div>
+          <div class="tc-card">
+            <div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div>
+            <h3 class="tc-h3">Global standard</h3>
+            <p>Taught in 40+ countries, with Master Instructors across the USA, Europe, Brazil and the Philippines.</p>
+          </div>
+          <div class="tc-card">
+            <div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-7-7 18-2-8-9-3z"/></svg></div>
+            <h3 class="tc-h3">Industry-backed</h3>
+            <p>Trusted by brands like 5.11 ABR Academy and Recoil.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tc-right tc-reveal">
+        <div class="tc-ph tc-ar-23" data-tc-img="jared-teaching">
+          <svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="tc-ph-label">IMAGE: JARED TEACHING A PROFESSIONAL CLASS</span>
+          <span class="tc-ph-desc">Jared instructing officers or operators, B&W, portrait</span>
+          <span class="tc-ph-size">1200 x 1500 px</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc-bounce-arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3: RELATABILITY
+     ============================================================ -->
+<section class="tc-section tc-tone-charcoal" aria-label="Relatability">
+  <div class="tc-container">
+    <div class="tc-head-block tc-center tc-reveal" style="margin:0 auto 48px;">
+      <p style="font-family:var(--tc-font-serif);font-style:italic;font-size:20px;color:var(--tc-body);">Trying to keep on top of your combatives training on your own...</p>
+      <h2 class="tc-h2">Does any of this sound <span class="tc-serif-accent">familiar?</span></h2>
+    </div>
+
+    <div class="tc-two">
+      <div class="tc-left tc-reveal">
+        <div class="tc-ph tc-ar-23" data-tc-img="frustrated-student">
+          <svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="tc-ph-label">IMAGE: FRUSTRATED STUDENT</span>
+          <span class="tc-ph-desc">Someone alone, training to a phone or tablet in a garage, low light, B&W</span>
+          <span class="tc-ph-size">1200 x 1500 px</span>
+        </div>
+      </div>
+      <div class="tc-right tc-reveal">
+        <div class="tc-stack" style="gap:14px;">
+          <div class="tc-check-card">
+            <span class="tc-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div><div class="tc-pain">Your techniques work in the gym but you don't trust them under adrenaline.</div></div>
+          </div>
+          <div class="tc-check-card">
+            <span class="tc-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div><div class="tc-pain">You've collected years of YouTube clips but there's no system and no progression.</div></div>
+          </div>
+          <div class="tc-check-card">
+            <span class="tc-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div><div class="tc-pain">Your department gives you a few hours of defensive tactics a year, and it has to hold up in a use-of-force review.</div></div>
+          </div>
+          <div class="tc-check-card">
+            <span class="tc-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div><div class="tc-pain">There's no qualified instructor anywhere near you.</div></div>
+          </div>
+          <div class="tc-check-card">
+            <span class="tc-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div><div class="tc-pain">You want to teach and certify others, but there's no recognized path.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc-center tc-reveal" style="margin-top:56px;max-width:760px;margin-left:auto;margin-right:auto;">
+      <p style="font-family:var(--tc-font-head);font-weight:700;font-size:clamp(20px,2.6vw,28px);line-height:1.35;color:var(--tc-white);">
+        Don't worry. We'll fix that with you inside TRICOM, so you build a tested, structured skill set in 12 weeks with TRICOM Fundamentals, instead of spending years piecing it together on your own.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4: THE SOLUTION
+     ============================================================ -->
+<section class="tc-section" aria-label="The solution">
+  <div class="tc-container">
+    <div class="tc-head-block tc-center tc-reveal" style="margin:0 auto 48px;">
+      <span class="tc-eyebrow">A clearer path forward</span>
+      <h2 class="tc-h2">
+        There's a better path to mastering<br/>
+        <span class="tc-typed tc-typed-solution" id="tcTypedSolution"></span><span class="tc-caret" id="tcCaretSolution"></span>
+      </h2>
+    </div>
+
+    <div class="tc-feat-grid" style="grid-template-columns:1fr;">
+      <!-- reset to 3 col for solution -->
+    </div>
+    <div style="display:grid;grid-template-columns:1fr;gap:16px;" class="tc-solution-grid">
+      <div class="tc-card tc-reveal">
+        <div class="tc-step-micro"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Step 1 of 3</div>
+        <div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3 class="tc-h3">Learn From Real Experts</h3>
+        <p>Watch over the shoulder of a 25+ year SWAT operator and Special Forces combatives instructor as he breaks down every technique, drill and why it works.</p>
+      </div>
+      <div class="tc-card tc-reveal">
+        <div class="tc-step-micro"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Step 2 of 3</div>
+        <div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg></div>
+        <h3 class="tc-h3">Model What We Teach You</h3>
+        <p>Follow the exact video trainings, drills and progressions our instructors use with police academies and military units, step by step.</p>
+      </div>
+      <div class="tc-card tc-reveal">
+        <div class="tc-step-micro"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Step 3 of 3</div>
+        <div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+        <h3 class="tc-h3">You Decide Your Level</h3>
+        <p>Train as an Operator for yourself, or go further as Train-the-Trainer. Climb from Silver (Levels 1 to 2) to Gold (Levels 1 to 4) and the path to Full TRICOM Instructor.</p>
+      </div>
+    </div>
+    <style>
+      @media (min-width:900px){ .tc-solution-grid{ grid-template-columns:repeat(3,1fr)!important; } }
+    </style>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5: INTRODUCING TRICOM (authority) — RED
+     ============================================================ -->
+<section class="tc-section tc-tone-red" aria-label="Introducing TRICOM">
+  <div class="tc-container">
+    <div class="tc-head-block tc-center tc-reveal" style="margin:0 auto 40px;">
+      <span class="tc-eyebrow">Introducing TRICOM</span>
+      <h2 class="tc-h2">Everything you need to <span class="tc-serif-accent">train, test and certify.</span></h2>
+      <p class="tc-body" style="margin:0 auto;">TRICOM is Triangle Combatives, the training brand of Survival Edge Tactical Systems, founded in 2006 by Jared Wihongi and allied with the Pekiti Tirsia Tactical Association.</p>
+      <p class="tc-body" style="margin:0 auto;">Masterclass video tutorials, a members' area you can reach anywhere, live online sessions, in-person courses and grading worldwide.</p>
+    </div>
+
+    <div class="tc-reveal" style="margin:0 auto 48px;max-width:1000px;">
+      <div class="tc-ph tc-ar-1610" data-tc-img="course-stack">
+        <svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span class="tc-ph-label">IMAGE: COURSE STACK MOCKUP</span>
+        <span class="tc-ph-desc">3D stack of best-selling TRICOM course covers and a laptop showing the members' area, transparent background</span>
+        <span class="tc-ph-size">1600 x 1000 px</span>
+      </div>
+    </div>
+
+    <!-- Bento grid: 1 large (2x2) + 4 small -->
+    <div class="tc-bento tc-reveal">
+      <!-- LARGE -->
+      <div class="tc-bento-card gold-glow tc-bs-6">
+        <div class="tc-bento-top">
+          <div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg></div>
+          <span class="tc-price-tag">SILVER $39/MO · GOLD $59/MO</span>
+        </div>
+        <div>
+          <div class="tc-bento-name">TRICOM Self-Defense & Combat System</div>
+          <div class="tc-bento-desc">The complete curriculum, 4 levels, 16 tiers, dripped weekly.</div>
+        </div>
+      </div>
+      <div class="tc-bento-card tc-bs-3">
+        <div class="tc-bento-top">
+          <div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/></svg></div>
+        </div>
+        <div>
+          <div class="tc-bento-name" style="font-size:20px;">TRICOM Fundamentals</div>
+          <div class="tc-bento-desc">$995 or 3 x $397. 12 weeks. The instructor prerequisite. Opens once or twice a year.</div>
+        </div>
+      </div>
+      <div class="tc-bento-card red-accent tc-bs-3">
+        <div class="tc-bento-top">
+          <div class="tc-card-icon red"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2l-8 8 3 3 8-8-3-3zM6 10l-3 3 3 3 3-3-3-3z"/></svg></div>
+        </div>
+        <div>
+          <div class="tc-bento-name" style="font-size:20px;">Edged Weapons Countermeasures</div>
+          <div class="tc-bento-desc">From $149. Our most enrolled course.</div>
+        </div>
+      </div>
+      <div class="tc-bento-card tc-bs-3">
+        <div class="tc-bento-top">
+          <div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l6-6M9 15l-3-3 9-9 3 3-9 9-3-3z"/></svg></div>
+        </div>
+        <div>
+          <div class="tc-bento-name" style="font-size:20px;">Duty Knife as a Backup Weapon</div>
+          <div class="tc-bento-desc">$149. Lifetime access.</div>
+        </div>
+      </div>
+      <div class="tc-bento-card gold-glow tc-bs-3">
+        <div class="tc-bento-top">
+          <div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 015 5c0 3-5 9-5 9s-5-6-5-9a5 5 0 015-5z"/><path d="M7 14l-2 7 7-2 7 2-2-7"/></svg></div>
+        </div>
+        <div>
+          <div class="tc-bento-name" style="font-size:20px;">Tactical Clinch</div>
+          <div class="tc-bento-desc">From $149. Fights are won and lost in the clinch.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc-center tc-reveal" style="margin-top:48px;">
+      <button class="tc-btn tc-btn-primary" id="tcOpenInstructor" type="button">Become an Instructor</button><!-- LINK: Instructor program popup -->
+    </div>
+  </div>
+</section>
+
+<!-- Instructor dialog -->
+<dialog class="tc-dialog" id="tcInstructorDialog" aria-labelledby="tcDialogTitle">
+  <div class="tc-dialog-inner">
+    <button class="tc-dialog-close" id="tcDialogClose" aria-label="Close">&times;</button>
+    <span class="tc-eyebrow">Instructor Program</span>
+    <h2 class="tc-h2" id="tcDialogTitle" style="font-size:clamp(26px,3.4vw,40px);">Become a Certified TRICOM Instructor</h2>
+    <p class="tc-dialog-intro">Start with TRICOM Fundamentals, then certify module by module. $495 per module, renewed annually, or included with an active Gold annual membership.</p>
+    <div class="tc-dialog-grid">
+      <div class="tc-dialog-card">
+        <div class="tc-ph tc-ar-169"><svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="tc-ph-label">IMAGE: COURSE COVER</span></div>
+        <div class="tc-dc-name">TRICOM Fundamentals</div>
+      </div>
+      <div class="tc-dialog-card">
+        <div class="tc-ph tc-ar-169"><svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="tc-ph-label">IMAGE: COURSE COVER</span></div>
+        <div class="tc-dc-name">Duty Knife as a Backup Weapon</div>
+      </div>
+      <div class="tc-dialog-card">
+        <div class="tc-ph tc-ar-169"><svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="tc-ph-label">IMAGE: COURSE COVER</span></div>
+        <div class="tc-dc-name">Edged Weapons Countermeasures</div>
+      </div>
+      <div class="tc-dialog-card">
+        <div class="tc-ph tc-ar-169"><svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="tc-ph-label">IMAGE: COURSE COVER</span></div>
+        <div class="tc-dc-name">Ground S.E.R.E. (Survival, Evasion, Resistance, Escape)</div>
+      </div>
+    </div>
+    <div class="tc-dialog-actions">
+      <a class="tc-btn tc-btn-primary" href="#">Explore the Instructor Program</a><!-- LINK: Instructor program -->
+    </div>
+  </div>
+</dialog>
+
+<!-- ============================================================
+     SECTION 6: SNEAK PEEK
+     ============================================================ -->
+<section class="tc-section tc-tone-charcoal" aria-label="Sneak peek">
+  <div class="tc-container">
+    <div class="tc-head-block tc-center tc-reveal" style="margin:0 auto 40px;">
+      <span class="tc-eyebrow">A look inside</span>
+      <h2 class="tc-h2">Here's exactly <span class="tc-serif-accent">what's inside.</span></h2>
+    </div>
+
+    <div class="tc-reveal" style="margin:0 auto 56px;">
+      <div class="tc-ph" style="aspect-ratio:16/10;" data-tc-img="members-area">
+        <svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span class="tc-ph-label">IMAGE: MEMBERS AREA SCREENSHOT</span>
+        <span class="tc-ph-desc">Laptop showing the TRICOM members' area with 3 rows of course thumbnails</span>
+        <span class="tc-ph-size">1920 x 1200 px</span>
+      </div>
+    </div>
+
+    <div class="tc-head-block tc-center tc-reveal" style="margin:0 auto 40px;">
+      <h2 class="tc-h2" style="font-size:clamp(26px,3.4vw,40px);">Just a taste of what you'll discover...</h2>
+    </div>
+
+    <div class="tc-feat-grid tc-reveal">
+      <div class="tc-feat"><div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><p>Why fine motor skills vanish in the first seconds of an attack, and the gross motor tactics that still work.</p></div>
+      <div class="tc-feat"><div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div><p>The four priorities of ground survival: Survive, Evade, Resist, Escape.</p></div>
+      <div class="tc-feat"><div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6M9 15l-3-3 9-9 3 3-9 9-3-3z"/></svg></div><p>How to keep your weapon when someone already has their hands on it.</p></div>
+      <div class="tc-feat"><div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><p>Around 70% of defensive shootings happen between arm's reach and 10 feet. Here's what to train for.</p></div>
+      <div class="tc-feat"><div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 015 5c0 3-5 9-5 9s-5-6-5-9a5 5 0 015-5z"/></svg></div><p>Why fights are won and lost in the clinch, and how to control it.</p></div>
+      <div class="tc-feat"><div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2l-8 8 3 3 8-8-3-3zM6 10l-3 3 3 3 3-3-3-3z"/></svg></div><p>How to carry and use an everyday knife as a tool of defense.</p></div>
+      <div class="tc-feat"><div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div><p>The awareness and prevention skills that stop an attack before it starts.</p></div>
+      <div class="tc-feat"><div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h18M5 10l2-5h10l2 5M5 10v8h14v-8M9 14h6"/></svg></div><p>How to remove a non-compliant subject from a vehicle safely and under control.</p></div>
+    </div>
+
+    <div class="tc-center tc-reveal" style="margin-top:56px;display:flex;flex-direction:column;align-items:center;">
+      <a class="tc-btn tc-btn-primary" href="#">Start Training Today</a><!-- LINK: Online Training -->
+      <p class="tc-btn-micro" style="text-align:center;">LIFETIME ACCESS ON EVERY SINGLE COURSE</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7: CURRICULUM
+     ============================================================ -->
+<section class="tc-section" aria-label="Curriculum">
+  <div class="tc-container">
+    <div class="tc-head-block tc-center tc-reveal" style="margin:0 auto 48px;">
+      <span class="tc-eyebrow">The full curriculum</span>
+      <h2 class="tc-h2">Explore the modules inside <span class="tc-serif-accent">TRICOM Academy.</span></h2>
+    </div>
+  </div>
+
+  <div class="tc-curr-rows">
+    <div class="tc-marquee">
+      <div class="tc-marquee-track" id="tcCurrRow1"></div>
+    </div>
+    <div class="tc-marquee rev slow" style="margin-top:8px;">
+      <div class="tc-marquee-track" id="tcCurrRow2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 8: PROOF OF CONCEPT — INSTRUCTORS
+     ============================================================ -->
+<section class="tc-section tc-tone-charcoal" aria-label="Instructors">
+  <div class="tc-container">
+    <div class="tc-head-block tc-center tc-reveal" style="margin:0 auto 48px;">
+      <span class="tc-eyebrow">Proof of concept</span>
+      <h2 class="tc-h2">Meet your <span class="tc-serif-accent">instructors.</span></h2>
+    </div>
+
+    <!-- Owner -->
+    <div class="tc-two tc-reveal" style="align-items:flex-start;">
+      <div class="tc-left">
+        <div class="tc-ph tc-ar-43" data-tc-img="jared-wihongi">
+          <svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="tc-ph-label">IMAGE: JARED WIHONGI</span>
+          <span class="tc-ph-desc">Combined image: clean portrait on one side, Jared teaching in action on the other</span>
+          <span class="tc-ph-size">1600 x 1200 px</span>
+        </div>
+      </div>
+      <div class="tc-right">
+        <span class="tc-eyebrow">Founder & Chief Master Instructor</span>
+        <h2 class="tc-h2" style="font-size:clamp(28px,3.6vw,44px);">Jared Wihongi</h2>
+        <p class="tc-body">Jared Wihongi is the founder of TRICOM (Triangle Combatives) and Chief Master Instructor of the system. He started as a nightclub bouncer, then spent 25+ years as a street cop, a SWAT operator and a Police Academy defensive tactics instructor.</p>
+        <p class="tc-body">During the Global War on Terrorism he was contracted as a US Army Special Forces combatives instructor. He holds the rank of Grandmaster (Grand Tuhon) in Pekiti-Tirsia Kali, and TRICOM operates in a strategic alliance with the Pekiti Tirsia Tactical Association.</p>
+        <p class="tc-body">He has taught law enforcement, military and protection professionals in more than 40 countries. Every TRICOM course can be taken at Operator level or as a Train-the-Trainer program.</p>
+      </div>
+    </div>
+
+    <!-- Team grid -->
+    <h3 class="tc-h3 tc-reveal" style="margin-top:72px;margin-bottom:24px;text-align:center;font-family:var(--tc-font-mono);font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--tc-gold);font-weight:500;">Master Instructors & Grading Evaluators</h3>
+    <div class="tc-instructor-grid tc-reveal" id="tcInstructorGrid">
+      <!-- injected by JS -->
+    </div>
+
+    <!-- Trained with TRICOM logo marquee -->
+    <h3 class="tc-h3 tc-reveal" style="margin-top:72px;margin-bottom:24px;text-align:center;font-family:var(--tc-font-mono);font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--tc-gold);font-weight:500;">Trained with TRICOM</h3>
+    <div class="tc-marquee tc-logo-marquee tc-reveal">
+      <div class="tc-marquee-track" id="tcLogoTrack"></div>
+    </div>
+    <!-- Agency logos (police academies, military units) only with written permission. -->
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 9: TESTIMONIALS
+     ============================================================ -->
+<section class="tc-section" aria-label="Testimonials">
+  <div class="tc-container">
+    <div class="tc-head-block tc-center tc-reveal" style="margin:0 auto 48px;">
+      <span class="tc-eyebrow">In their words</span>
+      <h2 class="tc-h2">What our students <span class="tc-serif-accent">say.</span></h2>
+    </div>
+
+    <div class="tc-testi-grid tc-reveal" id="tcTestiGrid">
+      <!-- injected by JS -->
+      <div class="tc-google-card">
+        <div>
+          <div class="tc-stars" style="justify-content:center;margin-bottom:14px;">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+          </div>
+          <span class="tc-mono">GOOGLE REVIEWS WIDGET EMBED</span>
+          <!-- GOOGLE REVIEWS WIDGET EMBED -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 9b: FAQ
+     ============================================================ -->
+<section class="tc-section tc-tone-charcoal" aria-label="FAQ">
+  <div class="tc-container">
+    <div class="tc-head-block tc-center tc-reveal" style="margin:0 auto 48px;">
+      <span class="tc-eyebrow">Questions, answered</span>
+      <h2 class="tc-h2">Frequently asked <span class="tc-serif-accent">questions.</span></h2>
+    </div>
+    <div class="tc-faq tc-reveal" id="tcFaq">
+      <!-- injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 10: NEWSLETTER
+     ============================================================ -->
+<section class="tc-section" aria-label="Newsletter" style="position:relative;overflow:hidden;">
+  <div class="tc-news-glow"></div>
+  <div class="tc-container">
+    <div class="tc-news-inner">
+      <div class="tc-reveal">
+        <span class="tc-eyebrow">Free video series</span>
+        <h2 class="tc-h2">Get the free <span class="tc-serif-accent">Tactical Light & Pen</span> video series.</h2>
+        <p class="tc-body" style="margin-top:8px;">A short series with Jared Wihongi, filmed with 5.11 Tactical ABR Academy, plus updates on new courses and live events.</p>
+        <!-- GHL FORM EMBED: Newsletter sign-up -->
+        <div class="tc-form-placeholder" style="margin-top:24px;">
+          <div class="tc-form-field">First name</div>
+          <div class="tc-form-field">Email address</div>
+          <a class="tc-btn tc-btn-primary" href="#" style="align-self:flex-start;">Get the Free Series</a><!-- LINK: Newsletter form submit -->
+          <p class="tc-mono" style="color:var(--tc-mute);">NO SPAM. UNSUBSCRIBE ANY TIME.</p>
+        </div>
+      </div>
+      <div class="tc-reveal">
+        <div class="tc-ph tc-ar-169" data-tc-img="tactical-light-pen">
+          <svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="tc-ph-label">IMAGE: TACTICAL LIGHT & PEN THUMBNAIL</span>
+          <span class="tc-ph-desc">16:9 thumbnail for the free video series</span>
+          <span class="tc-ph-size">1600 x 900 px</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 11: FOOTER
+     ============================================================ -->
+<footer class="tc-footer">
+  <div class="tc-footer-inner">
+    <div class="tc-footer-brand">
+      <a class="tc-logo" href="#"><span class="tc-logo-mark">T</span><span class="tc-logo-word">TRI<span>COM</span></span></a>
+      <p>Triangle Combatives. The training brand of Survival Edge Tactical Systems, founded in 2006. Street-tested, military-proven combatives taught in 40+ countries.</p>
+      <div class="tc-socials">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6v1.9h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg></a><!-- LINK: Facebook -->
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><!-- LINK: Instagram -->
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 00-1.8-1.8C19.2 5 12 5 12 5s-7.2 0-8.8.5A2.5 2.5 0 001.4 7.3 26 26 0 001 12a26 26 0 00.4 4.7 2.5 2.5 0 001.8 1.8C4.8 19 12 19 12 19s7.2 0 8.8-.5a2.5 2.5 0 001.8-1.8C23 15.2 23 12 23 12zM10 15V9l5 3-5 3z"/></svg></a><!-- LINK: YouTube -->
+      </div>
+    </div>
+    <div class="tc-footer-col">
+      <h4>Train</h4>
+      <a href="#">Online Training</a><!-- LINK: Online Training -->
+      <a href="#">Live Courses</a><!-- LINK: Live course calendar -->
+      <a href="#">Instructor Program</a><!-- LINK: Instructor program -->
+    </div>
+    <div class="tc-footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a><!-- LINK: About -->
+      <a href="#">Team</a><!-- LINK: Team -->
+      <a href="#">Contact</a><!-- LINK: Contact -->
+      <a href="#">Shop</a><!-- LINK: Shop -->
+    </div>
+    <div class="tc-footer-col">
+      <h4>Legal</h4>
+      <a href="#">Privacy</a><!-- LINK: Privacy policy -->
+      <a href="#">Terms</a><!-- LINK: Terms -->
+      <a href="#">Refund Policy</a><!-- LINK: Refund policy -->
+    </div>
+  </div>
+  <div class="tc-footer-bottom">
+    <span class="tc-mono">© 2026 Survival Edge Tactical Systems</span>
+    <div class="tc-footer-contact">
+      <a href="mailto:info@tricomtraining.com">info@tricomtraining.com</a>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Data ---------- */
+  var topProducts = [
+    {name:"Edged Weapons Countermeasures", price:"FROM $149"},
+    {name:"Duty Knife as a Backup Weapon", price:"$149"},
+    {name:"TRICOM Fundamentals", price:"$995 OR 3 x $397"},
+    {name:"Tactical Clinch", price:"FROM $149"},
+    {name:"Expandable Baton", price:"FROM $149"},
+    {name:"TRICOM Self-Defense & Combat System", price:"FROM $39/MO"},
+    {name:"Karambit Combatives", price:"$249"},
+    {name:"EDC Knife Combatives", price:"$399"},
+    {name:"Ground S.E.R.E.", price:"FROM $149"},
+    {name:"Gross Motor Control Dynamics", price:"$149"}
+  ];
+
+  var curriculum = [
+    "Edged Weapons Countermeasures","Duty Knife as a Backup Weapon","Tactical Clinch",
+    "Ground S.E.R.E.","Fundamental Expandable Baton","Advanced Expandable Baton 2.0",
+    "Gross Motor Control Dynamics","Vehicle Extraction","C.S.C.S.",
+    "Close Quarters Firearms Integration Tactics","Weapon Retention","EDC Knife Combatives",
+    "Karambit Combatives","Immobilizations for Combat Application","Counter Assault Tactics (C.A.T.)",
+    "Women's Self-Defense Vol. 1","Advanced Arrest & Control Tactics","TRICOM Fundamentals"
+  ];
+
+  var instructors = [
+    {name:"Patch Caballero", loc:"Philippines"},
+    {name:"Isaac Birch", loc:"Indiana"},
+    {name:"Kenny Bigbee Jr.", loc:"Indiana"},
+    {name:"Mark Clarite", loc:"Texas"},
+    {name:"Buck Grant", loc:"Virginia"},
+    {name:"Jeff Green", loc:"Quantico, Virginia"},
+    {name:"Ernie Lake", loc:"Kentucky"},
+    {name:"Johannes Renninghoff", loc:"Germany"},
+    {name:"John Frankhuisen", loc:"Germany"},
+    {name:"Eric Laulagnet", loc:"France"},
+    {name:"Daniel Chaves", loc:"Brazil"},
+    {name:"Samuel Chi Baker", loc:"Collaborating Instructor"}
+  ];
+
+  var partnerLogos = [
+    "5.11 ABR Academy","Aperture","Bastinelli","Bonowi","Recoil","Fox Knives",
+    "Funker Tactical","Gym Jones","Halfbreed Blades","Pekiti Tirsia Tactical Association","SIRT","Browning"
+  ];
+
+  var faqs = [
+    {q:"Do I keep access?", a:"Yes. Every single course comes with lifetime access. The Self-Defense & Combat System is a membership, so access lasts while you're subscribed."},
+    {q:"Is there pricing for law enforcement and military?", a:"Yes. Ask us about law enforcement and military pricing."},
+    {q:"I live in a developing country. Is there help with cost?", a:"Yes. Residents of developing countries can apply for a 40% scholarship."},
+    {q:"Do I get a certificate?", a:"Premium courses and Extended modules include a certificate of completion when you meet the requirements."},
+    {q:"How do I become a TRICOM Instructor?", a:"Complete TRICOM Fundamentals, then certify module by module ($495 per module, renewed annually, or included with Gold annual)."},
+    {q:"Can I train in person?", a:"Yes. TRICOM runs courses and grading worldwide. See the live course calendar."},
+    {q:"Where's the community?", a:"In our private TRICOM Facebook group, open to students."}
+  ];
+
+  var heroPhrases = ["Self-Defense Training","Empty Hands Combatives","Contact Weapons","Firearms Integration"];
+  var solutionPhrases = ["Close Quarters Combatives","Edged Weapons Defense","Real-World Self-Defense"];
+
+  /* ---------- Helpers ---------- */
+  function phSvg(){
+    return '<svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>';
+  }
+  function courseCoverPh(label){
+    return '<div class="tc-ph" style="aspect-ratio:16/9;border:none;border-radius:0;">'+phSvg()+'<span class="tc-ph-label">IMAGE: COURSE COVER</span><span class="tc-ph-desc">'+label+'</span></div>';
+  }
+
+  /* ---------- Announcement bar: duplicate track for seamless loop ---------- */
+  (function(){
+    var track = document.getElementById("tcAnnounceTrack");
+    if(!track) return;
+    track.innerHTML += track.innerHTML;
+  })();
+
+  /* ---------- Product marquee ---------- */
+  (function(){
+    var track = document.getElementById("tcProductTrack");
+    if(!track) return;
+    var html = "";
+    topProducts.forEach(function(p){
+      html += '<div class="tc-pcard">'+courseCoverPh(p.name)+'<div class="tc-pcard-body"><div class="tc-pcard-name">'+p.name+'</div><div class="tc-pcard-price">'+p.price+'</div></div></div>';
+    });
+    track.innerHTML = html + html;
+  })();
+
+  /* ---------- Curriculum marquee (2 rows) ---------- */
+  (function(){
+    var row1 = document.getElementById("tcCurrRow1");
+    var row2 = document.getElementById("tcCurrRow2");
+    if(!row1 || !row2) return;
+    var half = Math.ceil(curriculum.length/2);
+    var set1 = curriculum.slice(0, half);
+    var set2 = curriculum.slice(half);
+    function build(arr){
+      var h = "";
+      arr.forEach(function(c){
+        h += '<div class="tc-ccard">'+courseCoverPh(c)+'<div class="tc-ccard-name">'+c+'</div></div>';
+      });
+      return h + h;
+    }
+    row1.innerHTML = build(set1);
+    row2.innerHTML = build(set2);
+  })();
+
+  /* ---------- Instructors grid ---------- */
+  (function(){
+    var grid = document.getElementById("tcInstructorGrid");
+    if(!grid) return;
+    var html = "";
+    instructors.forEach(function(i){
+      var role = i.loc === "Collaborating Instructor" ? "TRICOM Collaborating Instructor" : "TRICOM Master Instructor · Grading Evaluator";
+      html += '<div class="tc-instructor-card"><div class="tc-ph" style="aspect-ratio:4/5;border:none;">'+phSvg()+'<span class="tc-ph-label">IMAGE: '+i.name.toUpperCase()+' PORTRAIT</span><span class="tc-ph-size">800 x 1000 px</span></div><div class="tc-ic-body"><div class="tc-ic-name">'+i.name+'</div><div class="tc-ic-loc">'+i.loc+'</div><div class="tc-ic-role">'+role+'</div></div></div>';
+    });
+    grid.innerHTML = html;
+  })();
+
+  /* ---------- Logo marquee ---------- */
+  (function(){
+    var track = document.getElementById("tcLogoTrack");
+    if(!track) return;
+    var html = "";
+    partnerLogos.forEach(function(l){
+      html += '<span class="tc-logo-item">LOGO: '+l+'</span>';
+    });
+    track.innerHTML = html + html;
+  })();
+
+  /* ---------- Testimonials ---------- */
+  (function(){
+    var grid = document.getElementById("tcTestiGrid");
+    if(!grid) return;
+    var roles = ["Police Officer, Virginia","Military, USA","Civilian Defender, Texas","Security Professional, UK","Corrections Officer, Ohio","Everyday Protector, California"];
+    var html = "";
+    for(var i=0;i<6;i++){
+      html += '<div class="tc-testi"><div class="tc-testi-placeholder">[TESTIMONIAL TO BE SUPPLIED]</div><div class="tc-testi-head"><div class="tc-ph"></div><div><div class="tc-testi-name">[STUDENT NAME]</div><div class="tc-testi-role">'+roles[i]+'</div></div></div><div class="tc-stars">'+starSvg()+'</div></div>';
+    }
+    // insert google card first
+    var google = grid.querySelector(".tc-google-card");
+    grid.innerHTML = html;
+    grid.appendChild(google);
+  })();
+  function starSvg(){
+    var s = "";
+    for(var i=0;i<5;i++){ s += '<svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>'; }
+    return s;
+  }
+
+  /* ---------- FAQ accordion ---------- */
+  (function(){
+    var faq = document.getElementById("tcFaq");
+    if(!faq) return;
+    var html = "";
+    faqs.forEach(function(f, idx){
+      html += '<div class="tc-faq-item" data-idx="'+idx+'"><button class="tc-faq-q" aria-expanded="false">'+f.q+'<span class="tc-faq-toggle"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="tc-faq-a"><div class="tc-faq-a-inner">'+f.a+'</div></div></div>';
+    });
+    faq.innerHTML = html;
+    faq.querySelectorAll(".tc-faq-item").forEach(function(item){
+      var q = item.querySelector(".tc-faq-q");
+      var a = item.querySelector(".tc-faq-a");
+      q.addEventListener("click", function(){
+        var isOpen = item.classList.contains("open");
+        // close all
+        faq.querySelectorAll(".tc-faq-item").forEach(function(o){
+          o.classList.remove("open");
+          o.querySelector(".tc-faq-a").style.maxHeight = "0px";
+          o.querySelector(".tc-faq-q").setAttribute("aria-expanded","false");
+        });
+        if(!isOpen){
+          item.classList.add("open");
+          a.style.maxHeight = a.scrollHeight + "px";
+          q.setAttribute("aria-expanded","true");
+        }
+      });
+    });
+  })();
+
+  /* ---------- Mobile menu ---------- */
+  (function(){
+    var burger = document.getElementById("tcBurger");
+    var menu = document.getElementById("tcMobileMenu");
+    var close = document.getElementById("tcMobileClose");
+    if(!burger || !menu) return;
+    function open(){ menu.classList.add("open"); menu.setAttribute("aria-hidden","false"); burger.setAttribute("aria-expanded","true"); document.body.style.overflow="hidden"; }
+    function shut(){ menu.classList.remove("open"); menu.setAttribute("aria-hidden","true"); burger.setAttribute("aria-expanded","false"); document.body.style.overflow=""; }
+    burger.addEventListener("click", open);
+    close.addEventListener("click", shut);
+    menu.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", shut); });
+  })();
+
+  /* ---------- Instructor dialog ---------- */
+  (function(){
+    var btn = document.getElementById("tcOpenInstructor");
+    var dlg = document.getElementById("tcInstructorDialog");
+    var cls = document.getElementById("tcDialogClose");
+    if(!btn || !dlg) return;
+    var lastFocus = null;
+    btn.addEventListener("click", function(){ lastFocus = document.activeElement; dlg.showModal(); });
+    function close(){ dlg.close(); if(lastFocus && lastFocus.focus) lastFocus.focus(); }
+    cls.addEventListener("click", close);
+    dlg.addEventListener("click", function(e){
+      if(e.target === dlg) close();
+    });
+  })();
+
+  /* ---------- Typing animation ---------- */
+  function makeTyper(el, caret, phrases){
+    if(!el) return;
+    if(reduceMotion){
+      el.textContent = phrases[0];
+      if(caret) caret.classList.add("hide");
+      return;
+    }
+    var pi = 0, ci = 0, deleting = false;
+    function tick(){
+      var cur = phrases[pi];
+      if(!deleting){
+        ci++;
+        el.textContent = cur.slice(0, ci);
+        if(ci >= cur.length){
+          deleting = true;
+          if(caret) caret.classList.remove("hide");
+          setTimeout(tick, 1800);
+          return;
+        }
+        setTimeout(tick, 70);
+      } else {
+        ci--;
+        el.textContent = cur.slice(0, ci);
+        if(ci <= 0){
+          deleting = false;
+          pi = (pi + 1) % phrases.length;
+          setTimeout(tick, 250);
+          return;
+        }
+        setTimeout(tick, 35);
+      }
+    }
+    tick();
+  }
+  makeTyper(document.getElementById("tcTyped"), document.getElementById("tcCaret"), heroPhrases);
+  makeTyper(document.getElementById("tcTypedSolution"), document.getElementById("tcCaretSolution"), solutionPhrases);
+
+  /* ---------- Hero image crossfade synced to typing ---------- */
+  (function(){
+    if(reduceMotion) return;
+    var slides = document.querySelectorAll(".tc-hero-slide");
+    var typed = document.getElementById("tcTyped");
+    if(!slides.length || !typed) return;
+    var lastPhrase = -1;
+    var observer = new MutationObserver(function(){
+      var text = typed.textContent;
+      var idx = heroPhrases.indexOf(text);
+      if(idx !== -1 && idx !== lastPhrase){
+        lastPhrase = idx;
+        slides.forEach(function(s, i){ s.classList.toggle("active", i === idx); });
+      }
+    });
+    observer.observe(typed, {childList:true, characterData:true, subtree:true});
+  })();
+
+  /* ---------- Counters ---------- */
+  (function(){
+    var nums = document.querySelectorAll(".tc-stat-num");
+    if(!nums.length) return;
+    function animate(el){
+      var target = parseInt(el.getAttribute("data-count"),10);
+      var suffix = el.getAttribute("data-suffix") || "";
+      if(reduceMotion){ el.textContent = formatNum(target) + suffix; return; }
+      var dur = 1600, start = null;
+      function step(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts - start)/dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = formatNum(Math.round(target * eased)) + suffix;
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    function formatNum(n){
+      return n >= 1000 ? n.toLocaleString("en-US") : String(n);
+    }
+    if("IntersectionObserver" in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){ animate(en.target); io.unobserve(en.target); }
+        });
+      }, {threshold:0.4});
+      nums.forEach(function(n){ io.observe(n); });
+    } else {
+      nums.forEach(animate);
+    }
+  })();
+
+  /* ---------- Scroll reveal ---------- */
+  (function(){
+    if(reduceMotion) return;
+    var els = document.querySelectorAll(".tc-reveal");
+    if(!els.length) return;
+    if("IntersectionObserver" in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+        });
+      }, {threshold:0.12, rootMargin:"0px 0px -40px 0px"});
+      els.forEach(function(e){ io.observe(e); });
+    } else {
+      els.forEach(function(e){ e.classList.add("in"); });
+    }
+  })();
+
+})();
+</script>
+</body>
+</html>
