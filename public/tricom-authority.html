@@ -1356,6 +1356,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         </div>
       </div>
       <div class="tc-bento-card tc-bs-3">
+        <img
+          src="https://vibe.filesafe.space/1793886878432684230/attachments/3bccc5dc-497a-4b46-81e0-9fecac51555f.png"
+          alt="TRICOM Fundamentals Instructor Candidate Program"
+          class="tc-bento-bg-img"
+          loading="lazy"
+        />
         <div class="tc-bento-top">
           <div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/></svg></div>
         </div>
@@ -1365,6 +1371,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         </div>
       </div>
       <div class="tc-bento-card red-accent tc-bs-3">
+        <img
+          src="https://vibe.filesafe.space/1793886878432684230/attachments/6861dcc0-d4e0-4e98-a719-265b1863c21a.webp"
+          alt="TRICOM Edged Weapons Countermeasures"
+          class="tc-bento-bg-img"
+          loading="lazy"
+        />
         <div class="tc-bento-top">
           <div class="tc-card-icon red"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2l-8 8 3 3 8-8-3-3zM6 10l-3 3 3 3 3-3-3-3z"/></svg></div>
         </div>
@@ -1409,7 +1421,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     <p class="tc-dialog-intro">Start with TRICOM Fundamentals, then certify module by module. $495 per module, renewed annually, or included with an active Gold annual membership.</p>
     <div class="tc-dialog-grid">
       <div class="tc-dialog-card">
-        <div class="tc-ph tc-ar-169"><svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="tc-ph-label">IMAGE: COURSE COVER</span></div>
+        <div class="tc-ph tc-ar-169 real" style="border:none;border-radius:0;">
+          <img src="https://vibe.filesafe.space/1793886878432684230/attachments/3bccc5dc-497a-4b46-81e0-9fecac51555f.png" alt="TRICOM Fundamentals" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
         <div class="tc-dc-name">TRICOM Fundamentals</div>
       </div>
       <div class="tc-dialog-card">
@@ -1417,7 +1431,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         <div class="tc-dc-name">Duty Knife as a Backup Weapon</div>
       </div>
       <div class="tc-dialog-card">
-        <div class="tc-ph tc-ar-169"><svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="tc-ph-label">IMAGE: COURSE COVER</span></div>
+        <div class="tc-ph tc-ar-169 real" style="border:none;border-radius:0;">
+          <img src="https://vibe.filesafe.space/1793886878432684230/attachments/6861dcc0-d4e0-4e98-a719-265b1863c21a.webp" alt="Edged Weapons Countermeasures" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
         <div class="tc-dc-name">Edged Weapons Countermeasures</div>
       </div>
       <div class="tc-dialog-card">
@@ -1682,11 +1698,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
   /* ---------- Data ---------- */
   var topProducts = [
-    {name:"Edged Weapons Countermeasures", price:"FROM $149"},
+    {name:"Edged Weapons Countermeasures", price:"FROM $149", img:"https://vibe.filesafe.space/1793886878432684230/attachments/6861dcc0-d4e0-4e98-a719-265b1863c21a.webp"},
     {name:"Duty Knife as a Backup Weapon", price:"$149"},
-    {name:"TRICOM Fundamentals", price:"$995 OR 3 x $397"},
+    {name:"TRICOM Fundamentals", price:"$995 OR 3 x $397", img:"https://vibe.filesafe.space/1793886878432684230/attachments/3bccc5dc-497a-4b46-81e0-9fecac51555f.png"},
     {name:"Tactical Clinch", price:"FROM $149"},
-    {name:"Expandable Baton", price:"FROM $149"},
+    {name:"Expandable Baton", price:"FROM $149", img:"https://vibe.filesafe.space/1793886878432684230/attachments/a80321a5-7f66-4f33-a70e-b1a032b426b3.webp"},
     {name:"TRICOM Self-Defense & Combat System", price:"FROM $39/MO", img:"https://vibe.filesafe.space/1793886878432684230/attachments/c23d3aa2-cc8c-4fbf-b2d9-5443de505e56.webp"},
     {name:"Karambit Combatives", price:"$249"},
     {name:"EDC Knife Combatives", price:"$399"},
@@ -1773,11 +1789,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     var half = Math.ceil(curriculum.length/2);
     var set1 = curriculum.slice(0, half);
     var set2 = curriculum.slice(half);
+    function getCourseImg(title){
+      if(title === "TRICOM Self-Defense & Combat System") return "https://vibe.filesafe.space/1793886878432684230/attachments/c23d3aa2-cc8c-4fbf-b2d9-5443de505e56.webp";
+      if(title === "Edged Weapons Countermeasures") return "https://vibe.filesafe.space/1793886878432684230/attachments/6861dcc0-d4e0-4e98-a719-265b1863c21a.webp";
+      if(title === "Fundamental Expandable Baton" || title === "Expandable Baton") return "https://vibe.filesafe.space/1793886878432684230/attachments/a80321a5-7f66-4f33-a70e-b1a032b426b3.webp";
+      if(title === "TRICOM Fundamentals") return "https://vibe.filesafe.space/1793886878432684230/attachments/3bccc5dc-497a-4b46-81e0-9fecac51555f.png";
+      return null;
+    }
     function build(arr){
       var h = "";
       arr.forEach(function(c){
-        var isSystem = c === "TRICOM Self-Defense & Combat System";
-        var img = isSystem ? "https://vibe.filesafe.space/1793886878432684230/attachments/c23d3aa2-cc8c-4fbf-b2d9-5443de505e56.webp" : null;
+        var img = getCourseImg(c);
         h += '<div class="tc-ccard">'+courseCoverPh(c, img)+'<div class="tc-ccard-name">'+c+'</div></div>';
       });
       return h + h;
