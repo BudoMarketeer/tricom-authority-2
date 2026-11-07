@@ -715,6 +715,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .tc-bento-card.gold-glow { background: radial-gradient(ellipse at top right, rgba(218,160,36,0.16), var(--tc-card) 60%); }
 .tc-bento-card.red-accent { background: linear-gradient(160deg, rgba(201,40,40,0.22), var(--tc-card) 70%); }
 .tc-bento-card .tc-ph { position: absolute; inset: 0; border: none; border-radius: var(--tc-radius); opacity: 0.18; z-index: 0; }
+.tc-bento-card .tc-bento-bg-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.28; filter: contrast(1.1) brightness(0.85); z-index: 0; transition: opacity 0.35s ease, transform 0.45s ease; pointer-events: none; }
+.tc-bento-card:hover .tc-bento-bg-img { opacity: 0.42; transform: scale(1.04); }
 .tc-bento-card > * { position: relative; z-index: 1; }
 .tc-bento-card .tc-bento-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .tc-bento-card .tc-bento-name { font-family: var(--tc-font-head); font-weight: 800; font-size: clamp(18px, 2vw, 26px); line-height: 1.15; }
@@ -1338,6 +1340,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     <div class="tc-bento tc-reveal">
       <!-- LARGE -->
       <div class="tc-bento-card gold-glow tc-bs-6">
+        <img
+          src="https://vibe.filesafe.space/1793886878432684230/attachments/c23d3aa2-cc8c-4fbf-b2d9-5443de505e56.webp"
+          alt="TRICOM Grading System — The Complete Curriculum for Mastering Tri-Angle Combatives"
+          class="tc-bento-bg-img"
+          loading="lazy"
+        />
         <div class="tc-bento-top">
           <div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg></div>
           <span class="tc-price-tag">SILVER $39/MO · GOLD $59/MO</span>
@@ -1679,7 +1687,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     {name:"TRICOM Fundamentals", price:"$995 OR 3 x $397"},
     {name:"Tactical Clinch", price:"FROM $149"},
     {name:"Expandable Baton", price:"FROM $149"},
-    {name:"TRICOM Self-Defense & Combat System", price:"FROM $39/MO"},
+    {name:"TRICOM Self-Defense & Combat System", price:"FROM $39/MO", img:"https://vibe.filesafe.space/1793886878432684230/attachments/c23d3aa2-cc8c-4fbf-b2d9-5443de505e56.webp"},
     {name:"Karambit Combatives", price:"$249"},
     {name:"EDC Knife Combatives", price:"$399"},
     {name:"Ground S.E.R.E.", price:"FROM $149"},
@@ -1732,7 +1740,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   function phSvg(){
     return '<svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>';
   }
-  function courseCoverPh(label){
+  function courseCoverPh(label, imgUrl){
+    if(imgUrl){
+      return '<div class="tc-ph real" style="aspect-ratio:16/9;border:none;border-radius:0;"><img src="'+imgUrl+'" alt="'+label+'" loading="lazy" style="width:100%;height:100%;object-fit:cover;" /></div>';
+    }
     return '<div class="tc-ph" style="aspect-ratio:16/9;border:none;border-radius:0;">'+phSvg()+'<span class="tc-ph-label">IMAGE: COURSE COVER</span><span class="tc-ph-desc">'+label+'</span></div>';
   }
 
@@ -1749,7 +1760,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     if(!track) return;
     var html = "";
     topProducts.forEach(function(p){
-      html += '<div class="tc-pcard">'+courseCoverPh(p.name)+'<div class="tc-pcard-body"><div class="tc-pcard-name">'+p.name+'</div><div class="tc-pcard-price">'+p.price+'</div></div></div>';
+      html += '<div class="tc-pcard">'+courseCoverPh(p.name, p.img)+'<div class="tc-pcard-body"><div class="tc-pcard-name">'+p.name+'</div><div class="tc-pcard-price">'+p.price+'</div></div></div>';
     });
     track.innerHTML = html + html;
   })();
@@ -1765,7 +1776,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     function build(arr){
       var h = "";
       arr.forEach(function(c){
-        h += '<div class="tc-ccard">'+courseCoverPh(c)+'<div class="tc-ccard-name">'+c+'</div></div>';
+        var isSystem = c === "TRICOM Self-Defense & Combat System";
+        var img = isSystem ? "https://vibe.filesafe.space/1793886878432684230/attachments/c23d3aa2-cc8c-4fbf-b2d9-5443de505e56.webp" : null;
+        h += '<div class="tc-ccard">'+courseCoverPh(c, img)+'<div class="tc-ccard-name">'+c+'</div></div>';
       });
       return h + h;
     }
