@@ -1386,6 +1386,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         </div>
       </div>
       <div class="tc-bento-card tc-bs-3">
+        <img
+          src="https://files.leadconnectorhq.com/file/6af2fc0a30caaf80f6367751/duty-knife-as-a-backup-weapon-tricom-thumbnail-1.jpg"
+          alt="TRICOM Duty Knife as a Backup Weapon"
+          class="tc-bento-bg-img"
+          loading="lazy"
+        />
         <div class="tc-bento-top">
           <div class="tc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l6-6M9 15l-3-3 9-9 3 3-9 9-3-3z"/></svg></div>
         </div>
@@ -1427,7 +1433,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         <div class="tc-dc-name">TRICOM Fundamentals</div>
       </div>
       <div class="tc-dialog-card">
-        <div class="tc-ph tc-ar-169"><svg class="tc-ph-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="tc-ph-label">IMAGE: COURSE COVER</span></div>
+        <div class="tc-ph tc-ar-169 real" style="border:none;border-radius:0;">
+          <img src="https://files.leadconnectorhq.com/file/6af2fc0a30caaf80f6367751/duty-knife-as-a-backup-weapon-tricom-thumbnail-1.jpg" alt="Duty Knife as a Backup Weapon" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
         <div class="tc-dc-name">Duty Knife as a Backup Weapon</div>
       </div>
       <div class="tc-dialog-card">
@@ -1699,7 +1707,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   /* ---------- Data ---------- */
   var topProducts = [
     {name:"Edged Weapons Countermeasures", price:"FROM $149", img:"https://vibe.filesafe.space/1793886878432684230/attachments/6861dcc0-d4e0-4e98-a719-265b1863c21a.webp"},
-    {name:"Duty Knife as a Backup Weapon", price:"$149"},
+    {name:"Duty Knife as a Backup Weapon", price:"$149", img:"https://files.leadconnectorhq.com/file/6af2fc0a30caaf80f6367751/duty-knife-as-a-backup-weapon-tricom-thumbnail-1.jpg"},
     {name:"TRICOM Fundamentals", price:"$995 OR 3 x $397", img:"https://vibe.filesafe.space/1793886878432684230/attachments/3bccc5dc-497a-4b46-81e0-9fecac51555f.png"},
     {name:"Tactical Clinch", price:"FROM $149"},
     {name:"Expandable Baton", price:"FROM $149", img:"https://vibe.filesafe.space/1793886878432684230/attachments/a80321a5-7f66-4f33-a70e-b1a032b426b3.webp"},
@@ -1794,6 +1802,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       if(title === "Edged Weapons Countermeasures") return "https://vibe.filesafe.space/1793886878432684230/attachments/6861dcc0-d4e0-4e98-a719-265b1863c21a.webp";
       if(title === "Fundamental Expandable Baton" || title === "Expandable Baton") return "https://vibe.filesafe.space/1793886878432684230/attachments/a80321a5-7f66-4f33-a70e-b1a032b426b3.webp";
       if(title === "TRICOM Fundamentals") return "https://vibe.filesafe.space/1793886878432684230/attachments/3bccc5dc-497a-4b46-81e0-9fecac51555f.png";
+      if(title === "Duty Knife as a Backup Weapon") return "https://files.leadconnectorhq.com/file/6af2fc0a30caaf80f6367751/duty-knife-as-a-backup-weapon-tricom-thumbnail-1.jpg";
       return null;
     }
     function build(arr){
